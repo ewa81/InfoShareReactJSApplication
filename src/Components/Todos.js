@@ -85,10 +85,10 @@ class Todos extends Component {
 
   render() {
     return (
-      <div>
-        <ul>
+      <div className="todos">
+        <ul className="todos__list">
           {this.state.todos.map((todo, index) => (
-            <li key={index}>
+            <li className="todos__item" key={index}>
               <p>{todo.id}</p>
               <p>{todo.title}</p>
               <p>{todo.description}</p>
