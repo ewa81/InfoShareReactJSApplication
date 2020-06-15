@@ -84,18 +84,18 @@ class Todos extends Component {
   };
 
   render() {
+    const { id, title, description, status, createdAt } = this.state.todos;
     return (
       <div className="todos">
         <ul className="todos__list">
-          {this.state.todos.map((todo, index) => (
-            <li className="todos__item" key={index}>
-              <p>{todo.id}</p>
-              <p>{todo.title}</p>
-              <p>{todo.description}</p>
-              <p>{todo.status}</p>
-              <p>{todo.createdAt}</p>
-            </li>
-          ))}
+          {this.state.todos.map(todo =>
+            <li key={todo.id} todo={todo}>
+              <p>{id}</p>
+              <p>{title}</p>
+              <p>{description}</p>
+              <p>{status}</p>
+              <p>{createdAt}</p>
+            </li>)}
         </ul>
       </div>
     );
