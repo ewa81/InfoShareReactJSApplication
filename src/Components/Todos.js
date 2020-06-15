@@ -88,12 +88,12 @@ class Todos extends Component {
       <div className="todos">
         <ul className="todos__list">
           {this.state.todos.map(todo =>
-            <li key={todo.id} todo={todo}>
-              <p>{todo.id}</p>
-              <p>{todo.title}</p>
-              <p>{todo.description}</p>
-              <p>{todo.status}</p>
-              <p>{todo.createdAt}</p>
+            <li className="todos__item" key={todo.id} todo={todo}>
+              <p className="todos__id">{todo.id}</p>
+              <p className="todos__title">{todo.title}</p>
+              <p className="todos__description">{todo.description}</p>
+              <p className="todos__status">{todo.status}</p>
+              <p className="todos__createdAt">{todo.createdAt}</p>
             </li>
           )}
         </ul>
