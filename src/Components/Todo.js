@@ -10,8 +10,23 @@ class Todo extends Component {
         <p className="todosList__title">{title}</p>
         <p className="todosList__description">{description}</p>
         <p className="todosList__status">{status}</p>
-        <p className="todosList__createdAt">{createdAt}</p>
+        <p className="todosList__createdAt">
+          {this.formatDate(new Date(createdAt))}
+        </p>
       </li>
+    );
+  }
+
+  formatDate(date) {
+    const day = (date.getDate() < 10 ? "0" : "") + date.getDate();
+    const month = (date.getMonth() + 1 < 10 ? "0" : "") + (date.getMonth() + 1);
+    const year = date.getFullYear();
+    const hour = (date.getHours() < 10 ? "0" : "") + date.getHours();
+    const minute = (date.getMinutes() < 10 ? "0" : "") + date.getMinutes();
+    const second = (date.getSeconds() < 10 ? "0" : "") + date.getSeconds();
+
+    return (
+      day + "-" + month + "-" + year + " " + hour + ":" + minute + ":" + second
     );
   }
 }
