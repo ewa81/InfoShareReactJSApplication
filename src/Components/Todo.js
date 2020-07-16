@@ -9,12 +9,31 @@ class Todo extends Component {
         <p className="todosList__id">{id}</p>
         <p className="todosList__title">{title}</p>
         <p className="todosList__description">{description}</p>
-        <p className="todosList__status">{status}</p>
+        <p className={this.setTheTaskStatusClass(status)}>{status}</p>
         <p className="todosList__createdAt">
           {this.formatDate(new Date(createdAt))}
         </p>
       </li>
     );
+  }
+
+  setTheTaskStatusClass(status) {
+    let statusClass;
+
+    switch (status) {
+      case "DONE":
+        statusClass = "btn btn-success";
+        break;
+      case "IN_PROGRESS":
+        statusClass = "btn btn-warning";
+        break;
+      case "TODO":
+        statusClass = "btn btn-danger";
+        break;
+      default:
+        statusClass = "btn btn-light";
+    }
+    return statusClass;
   }
 
   formatDate(date) {
