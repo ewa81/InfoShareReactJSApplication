@@ -1,0 +1,11 @@
+.todosStatistics__statusCount--done {
+  color: green;
+}
+
+.todosStatistics__statusCount--inprogress {
+  color: orange;
+}
+
+.todosStatistics__statusCount--todo {
+  color: red;
+}
