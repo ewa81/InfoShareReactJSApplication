@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Todo from "./Todo";
+import TodosStatistics from "./TodosStatistics";
 
 class Todos extends Component {
   state = {
@@ -69,7 +70,8 @@ class Todos extends Component {
   };
 
   render() {
-    return (<div className="todosList">
+    return (<div className="todos">
+      <TodosStatistics todos={this.state.todos}/>
       <ul className="todosList__list">
         {this.state.todos.map(todo => (<Todo key={todo.id} todo={todo}/>))}
       </ul>
