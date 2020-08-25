@@ -1,8 +1,11 @@
 import React, { Component } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import "./Todo.scss"
 
 class Todo extends Component {
   render() {
-    const { id, title, description, status, createdAt, updatedAt } = this.props.todo;
+    const { id, title, description, status, createdAt } = this.props.todo;
 
     return (
       <li className="todosList__item">
@@ -13,7 +16,7 @@ class Todo extends Component {
         <p className="todosList__createdAt">
           {this.formatDate(new Date(createdAt))}
         </p>
-        <p className="todosList__updatedAt">{this.formatDate(new Date(updatedAt))}</p>
+        <FontAwesomeIcon icon={faTrash} className="todos__icon todos__icon--delete"/>
       </li>
     );
   }

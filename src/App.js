@@ -5,7 +5,7 @@ import {Container, Row, Col} from "react-bootstrap";
 import Nav from "./Components/Nav";
 import TodoForm from "./Components/TodoForm";
 import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
-import "./App.css";
+import "./App.scss";
 
 class App extends Component {
   render() {

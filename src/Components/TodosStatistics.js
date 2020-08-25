@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./TodosStatistics.css";
+import "./TodosStatistics.scss";
 
 class TodosStatistics extends Component {
   render() {
