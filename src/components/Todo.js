@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import "./Todo.scss"
 
 class Todo extends Component {
   render() {
@@ -14,6 +17,7 @@ class Todo extends Component {
           {this.formatDate(new Date(createdAt))}
         </p>
         <p className="todosList__updatedAt">{this.formatDate(new Date(updatedAt))}</p>
+        <FontAwesomeIcon icon={faTrash} className="todos__icon todos__icon--delete"/>
       </li>
     );
   }
