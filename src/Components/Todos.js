@@ -5,7 +5,7 @@ import todos from "../mocks/todos.json";
 
 class Todos extends Component {
   state = {
-    todos: todos,
+    todos
   };
 
   render() {
