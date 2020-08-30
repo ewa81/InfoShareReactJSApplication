@@ -8,13 +8,12 @@ class Todos extends Component {
     todos
   };
 
-  removeTodo = (index) => {
-    const filteredItems = Object.assign([], this.state.todos);
-    filteredItems.splice(index, 1);
-    this.setState({
-      todos: filteredItems
-    });
-  }
+removeTodo = (id) => {
+  const todos = this.state.todos;
+  const index = todos.findIndex(todo => todo.id === id)
+  todos.splice(index, 1)
+  this.setState({todos});
+}
 
   render() {
     return (<div className="todos">
