@@ -10,9 +10,9 @@ class Todos extends Component {
 
 removeTodo = (id) => {
   const todos = this.state.todos;
-  const index = todos.findIndex(todo => todo.id === id)
-  todos.splice(index, 1)
-  this.setState({todos});
+  const index = todos.findIndex(todo => todo.id === id);
+    todos.splice(index, 1);
+    this.setState({todos});
 }
 
   render() {
