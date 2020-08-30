@@ -1,9 +1,9 @@
 import React, {Component} from "react";
-import Todos from "./Components/Todos";
+import Todos from "./components/Todos";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {Container, Row, Col} from "react-bootstrap";
-import Nav from "./Components/Nav";
-import TodoForm from "./Components/TodoForm";
+import Nav from "./components/Nav";
+import TodoForm from "./components/TodoForm";
 import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 import "./App.scss";
 
