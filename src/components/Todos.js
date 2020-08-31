@@ -8,11 +8,18 @@ class Todos extends Component {
     todos
   };
 
+removeTodo = (id) => {
+  const todos = this.state.todos;
+  const index = todos.findIndex(todo => todo.id === id);
+  todos.splice(index, 1);
+  this.setState({todos});
+}
+
   render() {
     return (<div className="todos">
       <TodosStatistics todos={this.state.todos}/>
       <ul className="todosList__list">
-        {this.state.todos.map(todo => (<Todo key={todo.id} todo={todo}/>))}
+        {this.state.todos.map(todo => (<Todo key={todo.id} todo={todo} removeTodo={this.removeTodo}/>))}
       </ul>
     </div>);
   }

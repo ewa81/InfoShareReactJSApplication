@@ -17,7 +17,7 @@ class Todo extends Component {
           {this.formatDate(new Date(createdAt))}
         </p>
         <p className="todosList__updatedAt">{this.formatDate(new Date(updatedAt))}</p>
-        <FontAwesomeIcon icon={faTrash} className="todos__icon todos__icon--delete"/>
+        <FontAwesomeIcon icon={faTrash} className="todos__icon todos__icon--delete" onClick={() => this.props.removeTodo(id)}/>
       </li>
     );
   }
