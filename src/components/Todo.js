@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import "./Todo.scss"
+import { Link } from "react-router-dom";
 
 class Todo extends Component {
   render() {
@@ -10,7 +11,7 @@ class Todo extends Component {
     return (
       <li className="todosList__item">
         <p className="todosList__id">{id}</p>
-        <p className="todosList__title">{title}</p>
+        <Link to={`form-edit/${id}`}><p className="todosList__title">{title}</p></Link>
         <p className="todosList__description">{description}</p>
         <p className={this.setTheTaskStatusClass(status)}>{status}</p>
         <p className="todosList__createdAt">
