@@ -1,13 +1,13 @@
 import React, {Component} from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import TodoSelectForm from "./TodoSelectForm";
+
 
 class TodoForm extends Component {
   state = {
     title: "",
     description: "",
-    status: "",
+    status: "TODO",
     createdAt: new Date().toISOString()
   }
 
@@ -32,7 +32,6 @@ class TodoForm extends Component {
         <Form.Label className="todosForm__label">Description</Form.Label>
         <Form.Control className="todosForm__control" type="text" name="description" onChange={this.handleChange}/>
       </Form.Group>
-      <TodoSelectForm/>
       <Button className="todosFrom__button" variant="primary" type="submit">Submit</Button>
     </Form>);
   }

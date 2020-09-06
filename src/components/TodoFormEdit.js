@@ -1,11 +1,48 @@
 import React, { Component } from "react";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 class TodoFormEdit extends Component {
+  state = {
+    title: "",
+    description: "",
+    status: "",
+    createdAt: new Date().toISOString()
+  }
+
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    console.log(this.state);
+  };
+
   render() {
     return (
-      <div className="todosFormEdit">
-        <h1 className="todosFormEdit__id">Hello, TodoFormEdit Component here, this, is an id you have sent: {this.props.match.params.id}</h1>
-      </div>
+    <Form className="todosFormEdit" onSubmit={this.handleSubmit}>
+      <Form.Group className="todosFromEdit__group" controlId="formBasicTittle">
+        <Form.Label className="todosFromEdit__label">Title</Form.Label>
+        <Form.Control className="todosFormEdit__control" type="text" name="title" onChange={this.handleChange}/>
+      </Form.Group>
+      <Form.Group className="todosFormEdit__group" controlId="formBasicDescription">
+        <Form.Label className="todosFormEdit__label">Description</Form.Label>
+        <Form.Control className="todosFormEdit__control" type="text" name="description" onChange={this.handleChange}/>
+      </Form.Group>
+      <Form.Group className="todosFormEdit__group" controlId="formBasicStatsu">
+        <Form.Label className="todosFormEdit__label">Status</Form.Label>
+        <Form.Control className="todosFormEdit__control" as="select" name="status" custom onChange={this.handleChange}>
+          <option value=""></option>
+          <option value="todo">TODO</option>
+          <option value="in_progress">IN_PROGRESS</option>
+          <option value="done">DONE</option>
+        </Form.Control>
+      </Form.Group>
+      <Button className="todosFromEdit__button" variant="primary" type="submit">Submit</Button>
+    </Form>
     );
   };
 }
