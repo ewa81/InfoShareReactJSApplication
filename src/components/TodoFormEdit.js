@@ -7,7 +7,7 @@ class TodoFormEdit extends Component {
     title: "",
     description: "",
     status: "",
-    createdAt: new Date().toISOString()
+    updatedAt: new Date().toISOString()
   }
 
   handleChange = event => {
@@ -36,9 +36,9 @@ class TodoFormEdit extends Component {
         <Form.Label className="todosFormEdit__label">Status</Form.Label>
         <Form.Control className="todosFormEdit__control" as="select" name="status" custom onChange={this.handleChange}>
           <option value=""></option>
-          <option value="todo">TODO</option>
-          <option value="in_progress">IN_PROGRESS</option>
-          <option value="done">DONE</option>
+          <option value="TODO">TODO</option>
+          <option value="IN PROGRESS">IN_PROGRESS</option>
+          <option value="DONE">DONE</option>
         </Form.Control>
       </Form.Group>
       <Button className="todosFromEdit__button" variant="primary" type="submit">Submit</Button>
