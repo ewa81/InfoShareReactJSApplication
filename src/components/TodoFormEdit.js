@@ -37,7 +37,7 @@ class TodoFormEdit extends Component {
         <Form.Control className="todosFormEdit__control" as="select" name="status" custom onChange={this.handleChange}>
           <option value=""></option>
           <option value="TODO">TODO</option>
-          <option value="IN PROGRESS">IN_PROGRESS</option>
+          <option value="IN_PROGRESS">IN PROGRESS</option>
           <option value="DONE">DONE</option>
         </Form.Control>
       </Form.Group>
