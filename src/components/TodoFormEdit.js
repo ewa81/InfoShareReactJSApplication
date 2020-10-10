@@ -6,8 +6,9 @@ class TodoFormEdit extends Component {
   state = {
     title: "",
     description: "",
-    status: "",
-    updatedAt: new Date().toISOString()
+    status: "TODO",
+    updatedAt: new Date().toISOString();
+    validated: false
   }
 
   handleChange = event => {
@@ -17,16 +18,17 @@ class TodoFormEdit extends Component {
   };
 
   handleSubmit = event => {
+    this.setState({validated: true});
     event.preventDefault();
     console.log(this.state);
   };
 
   render() {
     return (
-    <Form className="todosFormEdit" onSubmit={this.handleSubmit}>
+    <Form noValidate validated={validated} className="todosFormEdit" onSubmit={this.handleSubmit}>
       <Form.Group className="todosFromEdit__group" controlId="formBasicTittle">
         <Form.Label className="todosFromEdit__label">Title</Form.Label>
-        <Form.Control className="todosFormEdit__control" type="text" name="title" onChange={this.handleChange}/>
+        <Form.Control className="todosFormEdit__control" type="text" name="title" onChange={this.handleChange} required/>
       </Form.Group>
       <Form.Group className="todosFormEdit__group" controlId="formBasicDescription">
         <Form.Label className="todosFormEdit__label">Description</Form.Label>
