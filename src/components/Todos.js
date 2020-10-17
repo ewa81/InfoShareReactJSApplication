@@ -10,10 +10,16 @@ class Todos extends Component {
   };
 
 componentDidMount() {
-  axios.get("http://localhost:8080/api/todos")
-  .then(res => {
-    console.log(res);
-    this.setState({todos: res.data});
+  axios({
+    url: "http://localhost:8080/api/todos",
+    method: 'GET',
+    data: todos
+  })
+  .then(() => {
+    console.log("Data has been sent to the server");
+  })
+  .catch(() => {
+    console.log("International server arror");
   });
 }
 
