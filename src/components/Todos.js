@@ -9,19 +9,14 @@ class Todos extends Component {
     todos
   };
 
-componentDidMount() {
-  axios({
-    url: "http://localhost:8080/api/todos",
-    method: 'GET',
-    data: todos
-  })
-  .then(() => {
-    console.log("Data has been sent to the server");
-  })
-  .catch(() => {
-    console.log("International server arror");
-  });
-}
+async componentDidMount() {
+  try {
+    const resp = await axios.get('http://localhost:8080/api/todos');
+    console.log('Data: ', resp.data);
+  } catch(error) {
+    console.log(error);
+  }
+};
 
 removeTodo = (id) => {
   const todos = this.state.todos;
