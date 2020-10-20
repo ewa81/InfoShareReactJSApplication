@@ -2,11 +2,21 @@ import React, {Component} from "react";
 import Todo from "./Todo";
 import TodosStatistics from "./TodosStatistics";
 import todos from "../mocks/todos.json";
+import axios from "axios";
 
 class Todos extends Component {
   state = {
     todos
   };
+
+async componentDidMount() {
+  try {
+    const resp = await axios.get('http://localhost:8080/api/todos');
+    console.log('Data: ', resp.data);
+  } catch(error) {
+    console.log(error);
+  }
+};
 
 removeTodo = (id) => {
   const todos = this.state.todos;
