@@ -23,7 +23,7 @@ class TodoForm extends Component {
     event.preventDefault();
 
     if (this.state.title) {
-      console.log('state ', this.state)  ;
+      console.log('state ', this.state);
     }
   };
 

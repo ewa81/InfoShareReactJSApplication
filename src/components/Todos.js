@@ -1,18 +1,18 @@
 import React, {Component} from "react";
 import Todo from "./Todo";
 import TodosStatistics from "./TodosStatistics";
-import todos from "../mocks/todos.json";
 import axios from "axios";
 
 class Todos extends Component {
   state = {
-    todos
+    todos: []
   };
 
 async componentDidMount() {
   try {
     const resp = await axios.get('http://localhost:8080/api/todos');
     console.log('Data: ', resp.data);
+    this.setState(todos: resp.data);
   } catch(error) {
     console.log(error);
   }
@@ -29,7 +29,7 @@ removeTodo = (id) => {
     return (<div className="todos">
       <TodosStatistics todos={this.state.todos}/>
       <ul className="todosList__list">
-        {this.state.todos.map(todo => (<Todo key={todo.id} todo={todo} removeTodo={this.removeTodo}/>))}
+        {this.state.todos.map(todo => (<Todo key={todo._id} todo={todo} removeTodo={this.removeTodo}/>))}
       </ul>
     </div>);
   }
