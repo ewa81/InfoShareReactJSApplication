@@ -19,8 +19,8 @@ class TodosStatistics extends Component {
     );
   }
 
-  getTodosCountByStatus(status) {
-    const result = this.props.todos.filter(todo => todo.status === status);
+  getTodosCountByStatus(todo_status) {
+    const result = this.props.todos.filter(todo => todo.status === todo_status);
     return result.length;
   }
 }

@@ -6,14 +6,14 @@ import { Link } from "react-router-dom";
 
 class Todo extends Component {
   render() {
-    const { id, title, description, status, createdAt, updatedAt } = this.props.todo;
+    const { id, todo_title, todo_description, todo_status, createdAt, updatedAt } = this.props.todo;
 
     return (
       <li className="todosList__item">
         <p className="todosList__id">{id}</p>
-        <Link to={`form-edit/${id}`}><p className="todosList__title">{title}</p></Link>
-        <p className="todosList__description">{description}</p>
-        <p className={this.setTheTaskStatusClass(status)}>{status}</p>
+        <Link to={`form-edit/${id}`}><p className="todosList__title">{todo_title}</p></Link>
+        <p className="todosList__description">{todo_description}</p>
+        <p className={this.setTheTaskStatusClass(todo_status)}>{todo_status}</p>
         <p className="todosList__createdAt">
           {this.formatDate(new Date(createdAt))}
         </p>
@@ -23,10 +23,10 @@ class Todo extends Component {
     );
   }
 
-  setTheTaskStatusClass(status) {
+  setTheTaskStatusClass(todo_status) {
     let statusClass;
 
-    switch (status) {
+    switch (todo_status) {
       case "DONE":
         statusClass = "btn btn-success";
         break;
