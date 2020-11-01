@@ -11,7 +11,7 @@ class Todos extends Component {
 async componentDidMount() {
   try {
     const todoResp = await axios.get('http://localhost:8080/api/todos');
-    this.setState(todos: todoResp.data);
+    this.setState({todos: todoResp.data});
   } catch(error) {
     console.log(error);
   }
