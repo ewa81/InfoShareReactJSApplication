@@ -3,7 +3,6 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import axios from 'axios';
 
-
 class TodoForm extends Component {
   state = {
     todo_title: "",
@@ -27,17 +26,16 @@ class TodoForm extends Component {
       console.log('state ', this.state);
     }
 
-    const todoListInput = {
-      todo_title: this.state.todo_title,
-      todo_description: this.state.todo_description
-    };
+    this.addTodo();
+  };
 
-    axios.post('http://localhost:8080/api/todos', todoListInput)
-    .then((response) => {
-      this.setState(todoListInput: response.data)
-    }).catch((error) => {
-      console.log(error)
-    });
+  async addTodo() {
+    try {
+      const postResp = axios axios.post('http://localhost:8080/api/todos', this.state);
+      this.setState({postResp});
+    } catch(error) {
+      console.log(error);
+    }
   };
 
   render() {
