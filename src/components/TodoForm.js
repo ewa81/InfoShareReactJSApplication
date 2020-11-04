@@ -18,7 +18,7 @@ class TodoForm extends Component {
     });
   };
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     this.setState({ validated: true });
     event.preventDefault();
 
@@ -26,13 +26,8 @@ class TodoForm extends Component {
       console.log('state ', this.state);
     }
 
-    this.addTodo();
-  };
-
-  async addTodo() {
     try {
-      const postResp = axios axios.post('http://localhost:8080/api/todos', this.state);
-      this.setState({postResp});
+      await axios.post('http://localhost:8080/api/todos', this.state);
     } catch(error) {
       console.log(error);
     }
