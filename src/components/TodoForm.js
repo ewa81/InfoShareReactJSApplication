@@ -22,14 +22,19 @@ class TodoForm extends Component {
     this.setState({ validated: true });
     event.preventDefault();
 
-    if (this.state.todo_title) {
-      console.log('state ', this.state);
+    const postTodosForm = {
+      this_title: this.state.todo_title,
+      this_description: this.state.todo_description,
+      this_status: this.state.todo_status,
+      createdAt: this.state.createdAt
     }
 
-    try {
-      await axios.post('http://localhost:8080/api/todos', this.state);
-    } catch(error) {
-      console.log(error);
+    if (this.state.todo_title) {
+      try {
+        await axios.post('http://localhost:8080/api/todos', postTodosForm);
+      } catch(error) {
+        console.log(error);
+      }
     }
   };
 
