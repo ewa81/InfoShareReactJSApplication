@@ -9,13 +9,20 @@ class TodoForm extends Component {
     todo_description: "",
     todo_status: "TODO",
     createdAt: new Date().toISOString(),
-    validated: false
+    validated: false,
+    isValid: false
   }
 
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
     });
+
+    if (event.target.value > 0) {
+      this.setState({ isValid: true });
+    } else {
+      this.setState({ isValid: false });
+    }
   };
 
   handleSubmit = async event => {
@@ -51,7 +58,7 @@ class TodoForm extends Component {
         <Form.Label className="todosForm__label">Description</Form.Label>
         <Form.Control className="todosForm__control" type="text" name="todo_description" onChange={this.handleChange}/>
       </Form.Group>
-      <Button className="todosFrom__button" variant="primary" type="submit">Submit</Button>
+      <Button className="todosFrom__button" variant="primary" type="submit" disabled={this.state.isValid}>Submit</Button>
     </Form>);
   }
 }
