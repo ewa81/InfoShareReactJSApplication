@@ -18,7 +18,7 @@ class TodoForm extends Component {
       [event.target.name]: event.target.value
     });
 
-    if (event.target.value > 0) {
+    if (event.target.value) {
       this.setState({ isValid: true });
     } else {
       this.setState({ isValid: false });
