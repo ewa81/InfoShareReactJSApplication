@@ -10,7 +10,7 @@ class TodoForm extends Component {
     todo_status: "TODO",
     createdAt: new Date().toISOString(),
     validated: false,
-    isValid: false
+    isValid: true
   }
 
   handleChange = event => {
@@ -19,9 +19,9 @@ class TodoForm extends Component {
     });
 
     if (event.target.value) {
-      this.setState({ isValid: true });
-    } else {
       this.setState({ isValid: false });
+    } else {
+      this.setState({ isValid: true });
     }
   };
 
