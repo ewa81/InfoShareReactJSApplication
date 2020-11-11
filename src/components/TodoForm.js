@@ -30,9 +30,9 @@ class TodoForm extends Component {
     event.preventDefault();
 
     const postTodosForm = {
-      this_title: this.state.todo_title,
-      this_description: this.state.todo_description,
-      this_status: this.state.todo_status,
+      todo_title: this.state.todo_title,
+      todo_description: this.state.todo_description,
+      todo_status: this.state.todo_status,
       createdAt: this.state.createdAt
     }
 
