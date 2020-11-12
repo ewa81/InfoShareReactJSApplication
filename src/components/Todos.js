@@ -25,9 +25,10 @@ removeTodo = (id) => {
 }
 
   render() {
+
     return (<div className="todos">
       <TodosStatistics todos={this.state.todos}/>
-      <ul className="todosList__list">
+      <ul className="todos__list">
         {this.state.todos.map(todo => (<Todo key={todo._id} todo={todo} removeTodo={this.removeTodo}/>))}
       </ul>
     </div>);

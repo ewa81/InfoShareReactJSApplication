@@ -20,7 +20,7 @@ class TodosStatistics extends Component {
   }
 
   getTodosCountByStatus(todo_status) {
-    const result = this.props.todos.filter(todo => todo.todo_status === todo_status);
+    const result = this.props.todos.filter((todo) => todo.todo_status === todo_status);
     return result.length;
   }
 }

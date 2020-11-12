@@ -9,15 +9,15 @@ class Todo extends Component {
     const { id, todo_title, todo_description, todo_status, createdAt, updatedAt } = this.props.todo;
 
     return (
-      <li className="todosList__item">
-        <p className="todosList__id">{id}</p>
-        <Link to={`form-edit/${id}`}><p className="todosList__title">{todo_title}</p></Link>
-        <p className="todosList__description">{todo_description}</p>
+      <li className="todos__item">
+        <p className="todos__id">{id}</p>
+        <Link to={`form-edit/${id}`}><p className="todos__title">{todo_title}</p></Link>
+        <p className="todos__description">{todo_description}</p>
         <p className={this.setTheTaskStatusClass(todo_status)}>{todo_status}</p>
-        <p className="todosList__createdAt">
+        <p className="todos__createdAt">
           {this.formatDate(new Date(createdAt))}
         </p>
-        <p className="todosList__updatedAt">{this.formatDate(new Date(updatedAt))}</p>
+        <p className="todos__updatedAt">{this.formatDate(new Date(updatedAt))}</p>
         <FontAwesomeIcon icon={faTrash} className="todos__icon todos__icon--delete" onClick={() => this.props.removeTodo(id)}/>
       </li>
     );
