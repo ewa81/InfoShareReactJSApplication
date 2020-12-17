@@ -18,9 +18,15 @@ class Todo extends Component {
           {this.formatDate(new Date(createdAt))}
         </p>
         <p className="todos__updatedAt">{this.formatDate(new Date(updatedAt))}</p>
-        <FontAwesomeIcon icon={faTrash} className="todos__icon todos__icon--delete" onClick={() => this.props.removeTodo(id)}/>
+        <FontAwesomeIcon icon={faTrash} className="todos__icon todos__icon--delete" onClick={() => this.removeTodo2(this.props.todo._id)}/>
       </li>
     );
+  }
+
+  removeTodo2 = (id) => {
+    const result = this.props.todos.find(item => item._id === id);
+    console.log('clicked', result);
+    console.log({id});
   }
 
   setTheTaskStatusClass(todo_status) {
