@@ -17,19 +17,19 @@ async componentDidMount() {
   }
 };
 
-// removeTodo = (id) => {
-//   const todos = this.state.todos;
-//   const index = todos.findIndex(todo => todo.id === id);
-//   todos.splice(index, 1);
-//   this.setState({todos});
-// }
+removeTodo = (id) => {
+  const todos = this.state.todos;
+  const index = todos.findIndex(todo => todo._id === id);
+  todos.splice(index, 1);
+  this.setState({todos});
+}
 
   render() {
 
     return (<div className="todos">
       <TodosStatistics todos={this.state.todos}/>
       <ul className="todos__list">
-        {this.state.todos.map(todo => (<Todo key={todo._id} todo={todo} todos={this.state.todos} removeTodo={this.removeTodo}/>))}
+        {this.state.todos.map(todo => (<Todo key={todo._id} todo={todo} removeTodo={this.removeTodo}/>))}
       </ul>
     </div>);
   }
