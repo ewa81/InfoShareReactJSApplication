@@ -18,11 +18,17 @@ async componentDidMount() {
 };
 
 removeTodo = (id) => {
+  const conf = window.confirm('Are you sure you want to save this the database?');
   const todos = this.state.todos;
-  const index = todos.findIndex(todo => todo._id === id);
-  todos.splice(index, 1);
-  this.setState({todos});
-}
+  if (conf) {
+    const index = todos.findIndex(todo => todo._id === id);
+    todos.splice(index, 1);
+    this.setState({todos});
+    console.log('Thing was saved to the database');
+  } else {
+    console.log('Thing was not saved to the database')
+  };
+};
 
   render() {
 
