@@ -19,8 +19,10 @@ async componentDidMount() {
 
 removeTodo = (id) => {
   const conf = window.confirm('Are you sure you want to delete this todo?');
-  const todos = this.state.todos;
+  
   if (conf) {
+    axios.delete(`http://localhost:8080/api/todos/${id}`);
+    const todos = this.state.todos;
     const index = todos.findIndex(todo => todo._id === id);
     todos.splice(index, 1);
     this.setState({todos});
