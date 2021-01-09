@@ -17,12 +17,21 @@ async componentDidMount() {
   }
 };
 
-removeTodo = (id) => {
-  const todos = this.state.todos;
-  const index = todos.findIndex(todo => todo._id === id);
-  todos.splice(index, 1);
-  this.setState({todos});
-}
+removeTodo = async (id) => {
+  const conf = window.confirm('Are you sure you want to delete this todo?');
+
+  if (conf) {
+    const todos = this.state.todos;
+    const index = todos.findIndex(todo => todo._id === id);
+    todos.splice(index, 1);
+    this.setState({todos});
+    try {
+      await axios.delete(`http://localhost:8080/api/todos/${id}`);
+    } catch(error) {
+      console.log(error);
+    }
+  };
+};
 
   render() {
 
