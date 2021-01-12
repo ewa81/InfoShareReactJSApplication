@@ -6,12 +6,19 @@ import { Link } from "react-router-dom";
 
 class Todo extends Component {
   render() {
-    const { id, todo_title, todo_description, todo_status, createdAt, updatedAt } = this.props.todo;
+    const {
+      _id: id,
+      todo_title,
+      todo_description,
+      todo_status,
+      createdAt,
+      updatedAt
+    } = this.props.todo;
 
     return (
       <li className="todos__item">
-        <p className="todos__id">{id}</p>
-        <Link to={`form-edit/${this.props.todo._id}`}><p className="todos__title">{todo_title}</p></Link>
+        <p className="todos__id"></p>
+        <Link to={`form-edit/${id}`}><p className="todos__title">{todo_title}</p></Link>
         <p className="todos__description">{todo_description}</p>
         <p className={this.setTheTaskStatusClass(todo_status)}>{todo_status}</p>
         <p className="todos__createdAt">
