@@ -6,7 +6,14 @@ import { Link } from "react-router-dom";
 
 class Todo extends Component {
   render() {
-    const { id, todo_title, todo_description, todo_status, createdAt, updatedAt } = this.props.todo;
+    const {
+      _id: id,
+      todo_title,
+      todo_description,
+      todo_status,
+      createdAt,
+      updatedAt
+    } = this.props.todo;
 
     return (
       <li className="todos__item">
