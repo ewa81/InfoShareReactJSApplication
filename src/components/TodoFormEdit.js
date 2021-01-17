@@ -21,8 +21,8 @@ class TodoFormEdit extends Component {
   async componentDidMount() {
     try {
       const {id} = this.props.match.params;
-      const todoRespId =  await axios.get(`http://localhost:8080/api/todos/${id}`);
-      console.log('TODO z bazy mongo: ', todoRespId.data);
+      const todo =  await axios.get(`http://localhost:8080/api/todos/${id}`);
+      console.log('TODO z bazy mongo: ', todo.data);
     } catch(error) {
       console.log(error);
     }
