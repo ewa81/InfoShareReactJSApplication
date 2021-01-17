@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import axios from "axios";
 
 class TodoFormEdit extends Component {
   state = {
+    id: "",
     title: "",
     description: "",
     status: "",
@@ -14,6 +16,16 @@ class TodoFormEdit extends Component {
     this.setState({
       [event.target.name]: event.target.value
     });
+  };
+
+  async componentDidMount() {
+    try {
+      const {id} = this.props.match.params;
+      const todoRespId =  await axios.get(`http://localhost:8080/api/todos/${id}`);
+      console.log('TODO z bazy mongo: ', todoRespId.data);
+    } catch(error) {
+      console.log(error);
+    }
   };
 
   handleSubmit = event => {
