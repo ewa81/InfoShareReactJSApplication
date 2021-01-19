@@ -5,9 +5,9 @@ import axios from "axios";
 
 class TodoFormEdit extends Component {
   state = {
-    title: "",
-    description: "",
-    status: "",
+    title: this.state.todo_title,
+    description: this.state.todo_description,
+    status: this.state.todo_status,
     updatedAt: new Date().toISOString()
   }
 
