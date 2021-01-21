@@ -24,8 +24,7 @@ class TodoFormEdit extends Component {
       this.setState({
         title: todo.data,
         description: todo.data,
-        status: todo.data,
-        updatedAt: todo.data
+        status: todo.data
       });
       console.log(this.state)
       console.log('TODO z bazy mongo: ', todo.data);
