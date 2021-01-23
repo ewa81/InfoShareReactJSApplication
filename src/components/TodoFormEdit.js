@@ -5,9 +5,9 @@ import axios from "axios";
 
 class TodoFormEdit extends Component {
   state = {
-    title: "",
-    description: "",
-    status: "",
+    todo_title: "",
+    todo_description: "",
+    todo_status: "",
     updatedAt: new Date().toISOString()
   }
 
@@ -19,14 +19,16 @@ class TodoFormEdit extends Component {
 
   async componentDidMount() {
     try {
-      const {id} = this.props.match.params;
+      const { id } = this.props.match.params;
       const todo =  await axios.get(`http://localhost:8080/api/todos/${id}`);
-      const data = {
-        todo_title: todo.data.todo_title,
-        todo_description: todo.data.todo_description,
-        todo_status: todo.data.todo_status
-      };
-      this.setState({data});
+      const { data } = todo;
+      const { todo_title, todo_description, todo_status } = data;
+      
+      this.setState({
+        todo_title,
+        todo_description,
+        todo_status
+      });
     } catch(error) {
       console.log(error);
     }
