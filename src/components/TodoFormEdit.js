@@ -8,6 +8,7 @@ class TodoFormEdit extends Component {
     title: "",
     description: "",
     status: "",
+    updatedAt: new Date().toISOString()
   }
 
   handleChange = event => {
@@ -20,12 +21,12 @@ class TodoFormEdit extends Component {
     try {
       const {id} = this.props.match.params;
       const todo =  await axios.get(`http://localhost:8080/api/todos/${id}`);
-      this.setState({
-        title: todo.data.todo_title,
-        description: todo.data.todo_description,
-        status: todo.data.todo_status
-      });
-      console.log('TODO z bazy mongo: ', todo.data);
+      const data = {
+        todo_title: todo.data.todo_title,
+        todo_description: todo.data.todo_description,
+        todo_status: todo.data.todo_status
+      };
+      this.setState({data});
     } catch(error) {
       console.log(error);
     }
