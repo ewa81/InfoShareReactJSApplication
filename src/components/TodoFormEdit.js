@@ -34,9 +34,16 @@ class TodoFormEdit extends Component {
     }
   };
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault();
-    console.log(this.state)
+
+    try {
+      const { id } = this.props.match.params;
+      await axios.put(`http://localhost:8080/api/todos/${id}`);
+      console.log('putTodo ', this.state);
+    } catch(error) {
+      console.log(error);
+    }
   };
 
   render() {
