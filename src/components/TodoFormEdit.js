@@ -36,14 +36,6 @@ class TodoFormEdit extends Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-
-    try {
-      const { id } = this.props.match.params;
-      await axios.put(`http://localhost:8080/api/todos/${id}`);
-      console.log('putTodo ', this.state);
-    } catch(error) {
-      console.log(error);
-    }
   };
 
   render() {
@@ -51,15 +43,15 @@ class TodoFormEdit extends Component {
       <Form onSubmit={this.handleSubmit} className="todosFormEdit">
         <Form.Group className="todosFormEdit__group" controlId="formBasicTittle">
           <Form.Label className="todosFormEdit__label">Title:</Form.Label>
-          <Form.Control className="todosFormEdit__control" type="text" name="title" onChange={this.handleChange} value={this.state.todo_title}/>
+          <Form.Control className="todosFormEdit__control" type="text" name="todo_title" onChange={this.handleChange} value={this.state.todo_title}/>
         </Form.Group>
         <Form.Group className="todosFormEdit__group" controlId="formBasicDescription">
           <Form.Label className="todosFormEdit__label">Description:</Form.Label>
-          <Form.Control className="todosFormEdit__control" type="text" name="description" onChange={this.handleChange} value={this.state.todo_description}/>
+          <Form.Control className="todosFormEdit__control" type="text" name="todo_description" onChange={this.handleChange} value={this.state.todo_description}/>
         </Form.Group>
         <Form.Group className="todosFormEdit__group" controlId="formBasicStatus">
           <Form.Label className="todosFormEdit__label">Status</Form.Label>
-          <Form.Control className="todosFormEdit__control" as="select" name="status" custom onChange={this.handleChange} value={this.state.todo_status}>
+          <Form.Control className="todosFormEdit__control" as="select" name="todo_status" custom onChange={this.handleChange} value={this.state.todo_status}>
           <option value=""></option>
           <option value="TODO">TODO</option>
           <option value="IN_PROGRESS">IN PROGRESS</option>
