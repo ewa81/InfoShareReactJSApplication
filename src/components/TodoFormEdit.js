@@ -40,6 +40,7 @@ class TodoFormEdit extends Component {
     try {
       const { id } = this.props.match.params;
       await axios.put(`http://localhost:8080/api/todos/${id}`, this.state);
+      this.props.history.goBack();
       console.log('todoPUT ', this.state);
     } catch(error) {
       console.log(error);
