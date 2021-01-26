@@ -8,7 +8,8 @@ class TodoFormEdit extends Component {
     todo_title: "",
     todo_description: "",
     todo_status: "",
-    updatedAt: new Date().toISOString()
+    updatedAt: new Date().toISOString(),
+    validated: false
   }
 
   handleChange = event => {
@@ -35,6 +36,7 @@ class TodoFormEdit extends Component {
   };
 
   handleSubmit = async event => {
+    this.setState({validated: true});
     event.preventDefault();
 
     try {
@@ -47,24 +49,29 @@ class TodoFormEdit extends Component {
   };
 
   render() {
+    const { validated } = this.state;
+
     return (
-      <Form onSubmit={this.handleSubmit} className="todosFormEdit">
+      <Form noValidate validated={validated} onSubmit={this.handleSubmit} className="todosFormEdit">
         <Form.Group className="todosFormEdit__group" controlId="formBasicTittle">
           <Form.Label className="todosFormEdit__label">Title:</Form.Label>
-          <Form.Control className="todosFormEdit__control" type="text" name="todo_title" onChange={this.handleChange} value={this.state.todo_title}/>
+          <Form.Control className="todosFormEdit__control" type="text" name="todo_title" onChange={this.handleChange} value={this.state.todo_title} required/>
+          <Form.Control.Feedback type="invalid">Title is required</Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="todosFormEdit__group" controlId="formBasicDescription">
           <Form.Label className="todosFormEdit__label">Description:</Form.Label>
-          <Form.Control className="todosFormEdit__control" type="text" name="todo_description" onChange={this.handleChange} value={this.state.todo_description}/>
+          <Form.Control className="todosFormEdit__control" type="text" name="todo_description" onChange={this.handleChange} value={this.state.todo_description} required/>
+          <Form.Control.Feedback type="invalid">Description is required</Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="todosFormEdit__group" controlId="formBasicStatus">
           <Form.Label className="todosFormEdit__label">Status</Form.Label>
-          <Form.Control className="todosFormEdit__control" as="select" name="todo_status" custom onChange={this.handleChange} value={this.state.todo_status}>
+          <Form.Control className="todosFormEdit__control" as="select" name="todo_status" custom onChange={this.handleChange} value={this.state.todo_status} required>
           <option value=""></option>
           <option value="TODO">TODO</option>
           <option value="IN_PROGRESS">IN PROGRESS</option>
           <option value="DONE">DONE</option>
           </Form.Control>
+          <Form.Control.Feedback type="invalid">Status is required</Form.Control.Feedback>
         </Form.Group>
         <Button className="todosFormEdit__button" variant="primary" type="submit">Submit</Button>
       </Form>
