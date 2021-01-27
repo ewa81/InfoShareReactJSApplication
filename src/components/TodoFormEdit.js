@@ -35,16 +35,35 @@ class TodoFormEdit extends Component {
     }
   };
 
+  checkForm = () => {
+    const { todo_title, todo_description, todo_status } = this.state;
+
+    if (!todo_title) {
+      return true;
+    }
+
+    if (!todo_description) {
+      return true;
+    }
+
+    if (!todo_status) {
+      return true;
+    }
+    return false;
+  };
+
   handleSubmit = async event => {
     this.setState({validated: true});
     event.preventDefault();
 
-    try {
-      const { id } = this.props.match.params;
-      await axios.put(`http://localhost:8080/api/todos/${id}`, this.state);
-      this.props.history.goBack();
-    } catch(error) {
-      console.log(error);
+    if (this.checkForm()) {
+      try {
+        const { id } = this.props.match.params;
+        await axios.put(`http://localhost:8080/api/todos/${id}`, this.state);
+        this.props.history.goBack();
+      } catch(error) {
+        console.log(error);
+      }
     }
   };
 
