@@ -39,7 +39,9 @@ class TodoFormEdit extends Component {
     this.setState({validated: true});
     event.preventDefault();
 
-    if (!event.target.checkValidity()) {
+    const isFormValid = !event.target.checkValidity();
+
+    if (isFormValid) {
       try {
         const { id } = this.props.match.params;
         await axios.put(`http://localhost:8080/api/todos/${id}`, this.state);
