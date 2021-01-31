@@ -51,6 +51,7 @@ class TodoFormEdit extends Component {
         console.log(error);
       }
     }
+    console.log(this.state);
   };
 
   render() {
