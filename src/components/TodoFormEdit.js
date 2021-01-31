@@ -39,8 +39,7 @@ class TodoFormEdit extends Component {
     this.setState({validated: true});
     event.preventDefault();
 
-    const form = event.target;
-    const isFormValid = form.checkValidity() === true;
+    const isFormValid = event.target.checkValidity() === true;
 
     if (isFormValid) {
       try {
