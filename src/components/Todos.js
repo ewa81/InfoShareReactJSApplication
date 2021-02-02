@@ -2,10 +2,13 @@ import React, {Component} from "react";
 import Todo from "./Todo";
 import TodosStatistics from "./TodosStatistics";
 import axios from "axios";
+import Button from "react-bootstrap/Button";
 
 class Todos extends Component {
   state = {
-    todos: []
+    todos: [],
+    oneText: "Choose todos to remove",
+    twoText: "Remove chosen todos"
   };
 
 async componentDidMount() {
@@ -33,10 +36,16 @@ removeTodo = async (id) => {
   };
 };
 
+  onClick = () => {
+    this.setState({ oneText: "Stop Chosing"});
+  };
+
   render() {
 
     return (<div className="todos">
       <TodosStatistics todos={this.state.todos}/>
+      <Button variant="info" onClick={this.onClick}>{this.state.oneText}</Button>
+      <Button variant="primary">{this.state.twoText}</Button>
       <ul className="todos__list">
         {this.state.todos.map(todo => (<Todo key={todo._id} todo={todo} removeTodo={this.removeTodo}/>))}
       </ul>
