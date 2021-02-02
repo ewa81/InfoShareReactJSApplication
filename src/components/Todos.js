@@ -8,7 +8,7 @@ class Todos extends Component {
   state = {
     todos: [],
     oneText: "Choose todos to remove",
-    twoText: "Remove chosen todos"
+    twoText: ""
   };
 
 async componentDidMount() {
@@ -37,7 +37,7 @@ removeTodo = async (id) => {
 };
 
   onClick = () => {
-    this.setState({ oneText: "Stop Chosing"});
+    this.setState({ oneText: "Stop Chosing", twoText: "Remove chosen todos"});
   };
 
   render() {
