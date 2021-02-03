@@ -7,8 +7,7 @@ import Button from "react-bootstrap/Button";
 class Todos extends Component {
   state = {
     todos: [],
-    oneText: "Choose todos to remove",
-    twoText: ""
+    showButton: false
   };
 
 async componentDidMount() {
@@ -36,16 +35,20 @@ removeTodo = async (id) => {
   };
 };
 
-  onClick = () => {
-    this.setState({ oneText: "Stop Chosing", twoText: "Remove chosen todos"});
+  handleClick = () => {
+    this.setState({
+      showButton: !this.state.showButton
+    });
   };
 
   render() {
 
     return (<div className="todos">
       <TodosStatistics todos={this.state.todos}/>
-      <Button variant="info" onClick={this.onClick}>{this.state.oneText}</Button>
-      <Button variant="primary">{this.state.twoText}</Button>
+      <Button variant="info" onClick={this.handleClick}>
+        {this.state.showButton ? "Stop Chosing" : "Choose todos to remove"}
+      </Button>{' '}
+        {this.state.showButton ? <Button variant="primary">Remove chosen todos</Button> : null}
       <ul className="todos__list">
         {this.state.todos.map(todo => (<Todo key={todo._id} todo={todo} removeTodo={this.removeTodo}/>))}
       </ul>
