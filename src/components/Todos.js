@@ -45,10 +45,10 @@ removeTodo = async (id) => {
 
     return (<div className="todos">
       <TodosStatistics todos={this.state.todos}/>
-      <Button variant="info" onClick={this.toggleButton}>
+      <Button variant="info" className="mr-2 bg warning mb-2 bg warning" onClick={this.toggleButton}>
         {this.state.deleteMode ? "Stop Chosing" : "Choose todos to remove"}
       </Button>
-        {this.state.deleteMode ? <Button variant="primary">Remove chosen todos</Button> : null}
+        {this.state.deleteMode ? <Button variant="primary" className="mb-2 bg warning">Remove chosen todos</Button> : null}
       <ul className="todos__list">
         {this.state.todos.map(todo => (<Todo key={todo._id} todo={todo} removeTodo={this.removeTodo}/>))}
       </ul>
