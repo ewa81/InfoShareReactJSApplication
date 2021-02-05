@@ -2,10 +2,12 @@ import React, {Component} from "react";
 import Todo from "./Todo";
 import TodosStatistics from "./TodosStatistics";
 import axios from "axios";
+import Button from "react-bootstrap/Button";
 
 class Todos extends Component {
   state = {
-    todos: []
+    todos: [],
+    deleteMode: false
   };
 
 async componentDidMount() {
@@ -33,10 +35,22 @@ removeTodo = async (id) => {
   };
 };
 
+  toggleButton = () => {
+    this.setState({
+      deleteMode: !this.state.deleteMode
+    });
+  };
+
   render() {
 
     return (<div className="todos">
       <TodosStatistics todos={this.state.todos}/>
+      <div className="todos__removeButtons mb-2">
+        <Button variant="info" className="mr-2" onClick={this.toggleButton}>
+        {this.state.deleteMode ? "Stop Chosing" : "Choose todos to remove"}
+        </Button>
+        {this.state.deleteMode ? <Button variant="primary">Remove chosen todos</Button> : null}
+      </div>
       <ul className="todos__list">
         {this.state.todos.map(todo => (<Todo key={todo._id} todo={todo} removeTodo={this.removeTodo}/>))}
       </ul>
