@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import "./Todo.scss"
 import { Link } from "react-router-dom";
+import Form from 'react-bootstrap/Form';
 
 class Todo extends Component {
   render() {
@@ -26,6 +27,7 @@ class Todo extends Component {
         </p>
         <p className="todos__updatedAt">{this.formatDate(new Date(updatedAt))}</p>
         <FontAwesomeIcon icon={faTrash} className="todos__icon todos__icon--delete" onClick={() => this.props.removeTodo(this.props.todo._id)}/>
+        <Form.Check type="checkbox" className="todos__checkbox mt-2 mb-2" label="Check todo to delete"/>
       </li>
     );
   }
