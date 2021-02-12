@@ -27,7 +27,7 @@ class Todo extends Component {
         </p>
         <p className="todos__updatedAt">{this.formatDate(new Date(updatedAt))}</p>
         <FontAwesomeIcon icon={faTrash} className="todos__icon todos__icon--delete" onClick={() => this.props.removeTodo(this.props.todo._id)}/>
-        <Form.Check type="checkbox" className="todos__checkbox mt-2 mb-2" label="Check todo to delete"/>
+        {this.props.deleteMode ? <Form.Check type="checkbox" className="todos__checkbox mt-2 mb-2" label="Check todo to delete"/> : null}
       </li>
     );
   }
