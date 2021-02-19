@@ -41,7 +41,7 @@ removeTodo = async (id) => {
     });
   };
 
-  selectTheTodoToBeRemoved = (index) => {
+  selectTodoToRemove = (index) => {
     console.log('index: ', index);
   }
 
@@ -63,7 +63,7 @@ removeTodo = async (id) => {
             todo={todo}
             removeTodo={this.removeTodo}
             deleteMode={this.state.deleteMode}
-            selectTheTodoToBeRemoved={this.selectTheTodoToBeRemoved}
+            selectTodoToRemove={this.selectTodoToRemove}
             />))}
       </ul>
     </div>);
