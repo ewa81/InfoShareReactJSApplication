@@ -41,6 +41,10 @@ removeTodo = async (id) => {
     });
   };
 
+  selectTodoToRemove = (index) => {
+    console.log('index: ', index);
+  }
+
   render() {
 
     return (<div className="todos">
@@ -52,12 +56,15 @@ removeTodo = async (id) => {
         {this.state.deleteMode ? <Button variant="primary">Remove chosen todos</Button> : null}
       </div>
       <ul className="todos__list">
-        {this.state.todos.map(todo => (
+        {this.state.todos.map((todo, index) => (
           <Todo
             key={todo._id}
+            index={index}
             todo={todo}
             removeTodo={this.removeTodo}
-            deleteMode={this.state.deleteMode}/>))}
+            deleteMode={this.state.deleteMode}
+            selectTodoToRemove={this.selectTodoToRemove}
+            />))}
       </ul>
     </div>);
   }
