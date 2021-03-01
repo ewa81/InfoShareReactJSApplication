@@ -7,7 +7,8 @@ import Button from "react-bootstrap/Button";
 class Todos extends Component {
   state = {
     todos: [],
-    deleteMode: false
+    deleteMode: false,
+    selectedTodos: []
   };
 
 async componentDidMount() {
@@ -41,9 +42,19 @@ removeTodo = async (id) => {
     });
   };
 
-  selectTodoToRemove = (index) => {
-    console.log('index: ', index);
-  }
+  selectTodoToRemove = (id) => {
+    const selectedTodos = this.state.selectedTodos;
+
+    if (selectedTodos.indexOf(id) === -1) {
+      selectedTodos.push(id);
+    } else {
+      selectedTodos.splice(selectedTodos.indexOf(id), 1);
+    }
+
+    this.setState({
+      selectedTodos
+    });
+  };
 
   render() {
 
