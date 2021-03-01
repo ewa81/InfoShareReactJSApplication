@@ -43,15 +43,17 @@ removeTodo = async (id) => {
   };
 
   selectTodoToRemove = (id) => {
-    const checkboxTodos = this.state.selectedTodos;
+    const selectedTodos = this.state.selectedTodos;
 
-    const index = checkboxTodos.indexOf(id);
-    if (index === -1) {
-      checkboxTodos.push(id);
+    if (selectedTodos.indexOf(id) === -1) {
+      selectedTodos.push(id);
     } else {
-      checkboxTodos.splice(index, 1);
+      selectedTodos.splice(selectedTodos.indexOf(id), 1);
     }
-    console.log(checkboxTodos)
+
+    this.setState({
+      selectedTodos
+    });
   };
 
   render() {
