@@ -52,7 +52,8 @@ removeTodo = async (id) => {
     }
 
     this.setState({
-      selectedTodos
+      selectedTodos,
+      deleteMode: false
     });
   };
 
