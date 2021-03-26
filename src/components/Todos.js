@@ -52,8 +52,20 @@ removeTodo = async (id) => {
     }
 
     this.setState({
-      selectedTodos,
-      deleteMode: false
+      selectedTodos
+    });
+  };
+
+  removeSelectedTodos = () => {
+    const {todos, selectedTodos} = this.state;
+
+    const todosAfterRemoval = todos.filter((item, index) => {
+      return selectedTodos.indexOf(index) === -1;
+    });
+
+    this.setState({
+      todos: todosAfterRemoval,
+      selectedTodos: []
     });
   };
 
@@ -65,7 +77,7 @@ removeTodo = async (id) => {
         <Button variant="info" className="mr-2" onClick={this.toggleButton}>
         {this.state.deleteMode ? "Stop Chosing" : "Choose todos to remove"}
         </Button>
-        {this.state.deleteMode ? <Button variant="primary">Remove chosen todos</Button> : null}
+        {this.state.deleteMode ? <Button variant="primary" onClick={this.removeSelectedTodos}>Remove chosen todos</Button> : null}
       </div>
       <ul className="todos__list">
         {this.state.todos.map((todo, index) => (
