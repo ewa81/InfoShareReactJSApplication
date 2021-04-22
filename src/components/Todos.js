@@ -57,7 +57,21 @@ removeTodo = async (id) => {
   };
 
   removeSelectedTodos = () => {
+    const conf = window.confirm('Do you really want to remove these todo');
+
+    if (conf) {
+      console.log("Hello kliknięto OK");
+    }
+
     const {todos, selectedTodos} = this.state;
+    const selectedIds = [];
+
+    for (let i = 0; i < selectedTodos.length; i++) {
+      const todoIndex = selectedTodos[i];
+      const todoId = todos[todoIndex]._id;
+      selectedIds.push(todoId);
+    }
+    console.log(selectedIds);
 
     const todosAfterRemoval = todos.filter((item, index) => {
       return selectedTodos.indexOf(index) === -1;
