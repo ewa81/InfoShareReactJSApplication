@@ -56,8 +56,29 @@ removeTodo = async (id) => {
     });
   };
 
-  removeSelectedTodos = () => {
+  removeSelectedTodos = async () => {
+    const isRemovalConfirmed = window.confirm('Do you really want to remove these todo');
+
+    if (!isRemovalConfirmed) {
+      return;
+    }
+
     const {todos, selectedTodos} = this.state;
+    const selectedIds = [];
+
+    for (let i = 0; i < selectedTodos.length; i++) {
+      const todoIndex = selectedTodos[i];
+      const todoId = todos[todoIndex]._id;
+      selectedIds.push(todoId);
+    }
+
+    const todoList = selectedIds.join();
+
+    try {
+      await axios.delete(`http://localhost:8080/api/todos/many/${todoList}`);
+    } catch(error) {
+      console.lob(error);
+    };
 
     const todosAfterRemoval = todos.filter((item, index) => {
       return selectedTodos.indexOf(index) === -1;
