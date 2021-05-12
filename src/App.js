@@ -12,7 +12,7 @@ class App extends Component {
   render() {
     return (<Router>
       <div className="todosApp">
-        <Container>
+        <Container fluid>
           <Nav/>
           <Row>
             <Col>
