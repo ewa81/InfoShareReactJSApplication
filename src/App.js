@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import Todos from "./components/Todos";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {Container, Row, Col} from "react-bootstrap";
+import {Container} from "react-bootstrap";
 import Nav from "./components/Nav";
 import TodoForm from "./components/TodoForm";
 import TodoFormEdit from "./components/TodoFormEdit";
@@ -13,16 +13,12 @@ class App extends Component {
     return (<Router>
         <Container fluid>
           <Nav/>
-          <Row>
-            <Col>
               <Switch>
                 <Redirect exact="exact" from="/" to="/todos"/>
                 <Route path="/todos" to="/todos" component={Todos}/>
                 <Route path="/form" component={TodoForm}/>
                 <Route path="/form-edit/:id" component={TodoFormEdit}/>
               </Switch>
-            </Col>
-          </Row>
         </Container>
     </Router>);
   }
