@@ -11,7 +11,6 @@ import "./App.scss";
 class App extends Component {
   render() {
     return (<Router>
-      <div className="todosApp">
         <Container fluid>
           <Nav/>
           <Row>
@@ -25,7 +24,6 @@ class App extends Component {
             </Col>
           </Row>
         </Container>
-      </div>
     </Router>);
   }
 }
