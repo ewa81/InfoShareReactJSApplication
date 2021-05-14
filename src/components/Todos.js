@@ -106,7 +106,9 @@ removeTodo = async (id) => {
             {this.state.deleteMode ? <Button variant="primary" onClick={this.removeSelectedTodos}>Remove chosen todos</Button> : null}
           </div>
           <ul className="todos__list">
+            <div className="row">
             {this.state.todos.map((todo, index) => (
+              <div key={todo._id} className="col-6 col-md-4">
               <Todo
                 key={todo._id}
                 index={index}
@@ -114,7 +116,8 @@ removeTodo = async (id) => {
                 removeTodo={this.removeTodo}
                 deleteMode={this.state.deleteMode}
                 selectTodoToRemove={this.selectTodoToRemove}
-              />))}
+              /></div>))}
+            </div>
           </ul>
         </Col>
       </Row>);
