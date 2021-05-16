@@ -3,6 +3,7 @@ import Todo from "./Todo";
 import TodosStatistics from "./TodosStatistics";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
+import {Row, Col} from "react-bootstrap";
 
 class Todos extends Component {
   state = {
@@ -92,26 +93,31 @@ removeTodo = async (id) => {
 
   render() {
 
-    return (<div className="todos">
-      <TodosStatistics todos={this.state.todos}/>
-      <div className="todos__removeButtons mb-2">
-        <Button variant="info" className="mr-2" onClick={this.toggleButton}>
-        {this.state.deleteMode ? "Stop Chosing" : "Choose todos to remove"}
-        </Button>
-        {this.state.deleteMode ? <Button variant="primary" onClick={this.removeSelectedTodos}>Remove chosen todos</Button> : null}
-      </div>
-      <ul className="todos__list">
-        {this.state.todos.map((todo, index) => (
-          <Todo
-            key={todo._id}
-            index={index}
-            todo={todo}
-            removeTodo={this.removeTodo}
-            deleteMode={this.state.deleteMode}
-            selectTodoToRemove={this.selectTodoToRemove}
-            />))}
-      </ul>
-    </div>);
+    return (
+      <Row>
+        <Col sm={2}>
+          <TodosStatistics todos={this.state.todos}/>
+        </Col>
+        <Col className="todos" sm={10}>
+          <div className="todos__removeButtons mb-2 pl-0">
+            <Button variant="info" className="mr-2" onClick={this.toggleButton}>
+              {this.state.deleteMode ? "Stop Chosing" : "Choose todos to remove"}
+            </Button>
+            {this.state.deleteMode ? <Button variant="primary" onClick={this.removeSelectedTodos}>Remove chosen todos</Button> : null}
+          </div>
+          <Row className="todos__list" as="ul">
+            {this.state.todos.map((todo, index) => (
+              <Todo
+                key={todo._id}
+                index={index}
+                todo={todo}
+                removeTodo={this.removeTodo}
+                deleteMode={this.state.deleteMode}
+                selectTodoToRemove={this.selectTodoToRemove}
+              />))}
+          </Row>
+        </Col>
+      </Row>);
   }
 }
 

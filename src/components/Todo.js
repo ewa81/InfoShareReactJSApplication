@@ -4,6 +4,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import "./Todo.scss"
 import { Link } from "react-router-dom";
 import Form from 'react-bootstrap/Form';
+import {Col} from "react-bootstrap";
 
 class Todo extends Component {
   render() {
@@ -17,7 +18,7 @@ class Todo extends Component {
     } = this.props.todo;
 
     return (
-      <li className="todos__item">
+      <Col className="todos__item" sm={3} as="li">
         <p className="todos__id">{id}</p>
         <Link to={`form-edit/${id}`}><p className="todos__title">{todo_title}</p></Link>
         <p className="todos__description">{todo_description}</p>
@@ -28,7 +29,7 @@ class Todo extends Component {
         <p className="todos__updatedAt">{this.formatDate(new Date(updatedAt))}</p>
         <FontAwesomeIcon icon={faTrash} className="todos__icon todos__icon--delete" onClick={() => this.props.removeTodo(this.props.todo._id)}/>
         {this.props.deleteMode ? <Form.Check type="checkbox" className="todos__checkbox mt-2 mb-2" label="Check todo to delete" onClick={() => this.props.selectTodoToRemove(this.props.index)}/> : null}
-      </li>
+      </Col>
     );
   }
 
