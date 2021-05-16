@@ -18,7 +18,7 @@ class Todo extends Component {
     } = this.props.todo;
 
     return (
-      <Col className="todos__item" sm={3}>
+      <Col className="todos__item" sm={3} as="li">
         <p className="todos__id">{id}</p>
         <Link to={`form-edit/${id}`}><p className="todos__title">{todo_title}</p></Link>
         <p className="todos__description">{todo_description}</p>

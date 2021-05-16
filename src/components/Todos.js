@@ -105,7 +105,7 @@ removeTodo = async (id) => {
             </Button>
             {this.state.deleteMode ? <Button variant="primary" onClick={this.removeSelectedTodos}>Remove chosen todos</Button> : null}
           </div>
-          <Row className="todos__list">
+          <Row className="todos__list" as="ul">
             {this.state.todos.map((todo, index) => (
               <Todo
                 key={todo._id}
