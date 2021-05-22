@@ -99,13 +99,13 @@ removeTodo = async (id) => {
           <TodosStatistics todos={this.state.todos}/>
         </Col>
         <Col className="todos" sm={10}>
-          <div className="todos__removeButtons mb-2 pl-0">
+          <div className="todos__removeButtons mb-2">
             <Button variant="info" className="mr-2" onClick={this.toggleButton}>
               {this.state.deleteMode ? "Stop Chosing" : "Choose todos to remove"}
             </Button>
             {this.state.deleteMode ? <Button variant="primary" onClick={this.removeSelectedTodos}>Remove chosen todos</Button> : null}
           </div>
-          <Row className="todos__list" as="ul">
+          <Row className="todos__list p-0" as="ul">
             {this.state.todos.map((todo, index) => (
               <Todo
                 key={todo._id}
