@@ -1,22 +1,18 @@
 $background-color: #433567;
 $color: #fff;
 $font-size: 20px;
-$list-style: none;
 
 .todosNav__menu {
   background-color: $background-color;
 }
 
 .todosNav__link {
-  list-style: $list-style;
+  list-style: none;
   color: $color;
 }
 
 .todosNav__icon {
-  list-style: $list-style;
-}
-
-.todos__icon--plus {
-  color: $color;
+  list-style: none;
+  color: white;
   font-size: $font-size;
 }

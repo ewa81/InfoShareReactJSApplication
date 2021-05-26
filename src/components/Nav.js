@@ -14,12 +14,12 @@ class Nav extends Component {
             <Row className="todosNav__list m-0 p-0 d-flex justify-content-between" as="ul">
               <Col>
                 <Link to="/todos">
-                  <li className="todosNav__link p-2">Todos</li>
+                  <li className="todosNav__link p-3">Todos</li>
                 </Link>
               </Col>
               <Col className="d-flex justify-content-end">
                 <Link to="/form">
-                  <li className="todosNav__icon p-2"><FontAwesomeIcon className="todos__icon todos__icon--plus" icon={faPlus}/></li>
+                  <li className="todosNav__icon p-3"><FontAwesomeIcon icon={faPlus}/></li>
                 </Link>
               </Col>
             </Row>
