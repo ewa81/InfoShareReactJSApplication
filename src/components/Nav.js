@@ -11,7 +11,7 @@ class Nav extends Component {
       <Row className="todosNav__menu mb-3">
         <Col className="todosNav" sm={12}>
           <nav className="todosNav__nav">
-            <Row className="todosNav__list m-2 p-0 d-flex justify-content-between" as="ul">
+            <Row className="todosNav__list m-0 p-0 d-flex justify-content-between" as="ul">
               <Col>
                 <Link to="/todos">
                   <li className="todosNav__link p-2">Todos</li>
