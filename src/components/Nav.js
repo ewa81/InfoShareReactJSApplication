@@ -15,8 +15,8 @@ class Nav extends Component {
               <Link to="/todos">
                 <li className="todosNav__link p-3">Todos</li>
               </Link>
-              <Link className="d-flex justify-content-end" to="/form">
-                <li className="todosNav__icon p-3"><FontAwesomeIcon icon={faPlus}/></li>
+              <Link to="/form">
+                <li className="todosNav__icon p-3 d-flex justify-content-end"><FontAwesomeIcon icon={faPlus}/></li>
               </Link>
               </ul>
           </nav>
