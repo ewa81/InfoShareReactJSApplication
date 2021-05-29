@@ -16,7 +16,7 @@ class Nav extends Component {
                 <li className="todosNav__link p-3">Todos</li>
               </Link>
               <Link to="/form">
-                <li className="todosNav__link todosNav__link--icon p-3"><FontAwesomeIcon icon={faPlus}/></li>
+                <li className="todosNav__link p-3"><FontAwesomeIcon icon={faPlus}/></li>
               </Link>
               </ul>
           </nav>
