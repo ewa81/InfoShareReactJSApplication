@@ -1,0 +1,13 @@
+$background-color: #433567;
+$color: #fff;
+$font-size: 20px;
+
+.todosNav__menu {
+  background-color: $background-color;
+}
+
+.todosNav__link {
+  list-style: none;
+  color: $color;
+  font-size: $font-size;
+}
