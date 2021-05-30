@@ -1,11 +1,16 @@
+$color: white;
+
 .todosStatistics__statusCount--done {
-  color: green;
+  background-color: #28a745;
+  color: $color;
 }
 
 .todosStatistics__statusCount--inprogress {
-  color: orange;
+  background-color: #ffc107;
+  color: $color;
 }
 
 .todosStatistics__statusCount--todo {
-  color: red;
+  background-color: #dc3545;
+  color: $color;
 }

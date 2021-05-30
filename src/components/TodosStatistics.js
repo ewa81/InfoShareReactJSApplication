@@ -5,14 +5,13 @@ class TodosStatistics extends Component {
   render() {
     return (
       <div className="todosStatistics">
-        <h5>Tasks:</h5>
-        <p className="todosStatistics__statusCount todosStatistics__statusCount--done">
+        <p className="todosStatistics__statusCount todosStatistics__statusCount--done p-4 rounded">
           DONE: {this.getTodosCountByStatus("DONE")}
         </p>
-        <p className="todosStatistics__statusCount todosStatistics__statusCount--inprogress">
+        <p className="todosStatistics__statusCount todosStatistics__statusCount--inprogress p-4 rounded">
           IN_PROGRESS: {this.getTodosCountByStatus("IN_PROGRESS")}
         </p>
-        <p className="todosStatistics__statusCount todosStatistics__statusCount--todo">
+        <p className="todosStatistics__statusCount todosStatistics__statusCount--todo p-4 rounded">
           TODO: {this.getTodosCountByStatus("TODO")}
         </p>
       </div>
