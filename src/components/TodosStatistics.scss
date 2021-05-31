@@ -1,16 +1,34 @@
-$color: white;
+$white_color: white;
+$green_color: #28a745;
+$orange_color: #ffc107;
+$red_color: #dc3545;
 
 .todosStatistics__statusCount--done {
-  background-color: #28a745;
-  color: $color;
+  background-color: $green_color;
+  color: $white_color;
 }
 
 .todosStatistics__statusCount--inprogress {
-  background-color: #ffc107;
-  color: $color;
+  background-color: $orange_color;
+  color: $white_color;
 }
 
 .todosStatistics__statusCount--todo {
-  background-color: #dc3545;
-  color: $color;
+  background-color: $red_color;
+  color: $white_color;
+}
+
+.todosStatistics__statusDone {
+  background-color: $white_color;
+  color: $green_color;
+}
+
+.todosStatistics__statusInprogress {
+  background-color: $white_color;
+  color: $orange_color;
+}
+
+.todosStatistics__statusTodo {
+  background-color: $white_color;
+  color: $red_color;
 }
