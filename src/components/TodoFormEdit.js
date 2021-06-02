@@ -60,12 +60,12 @@ class TodoFormEdit extends Component {
       <Form noValidate validated={validated} onSubmit={this.handleSubmit} className="todosFormEdit">
         <Form.Group className="todosFormEdit__group" controlId="formBasicTittle">
           <Form.Label className="todosFormEdit__label">Title:</Form.Label>
-          <Form.Control className="todosFormEdit__control" type="text" name="todo_title" onChange={this.handleChange} value={this.state.todo_title} required/>
+          <Form.Control className="todosFormEdit__control" type="text" name="todo_title" maxLength="40" onChange={this.handleChange} value={this.state.todo_title} required/>
           <Form.Control.Feedback type="invalid">Title is required</Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="todosFormEdit__group" controlId="formBasicDescription">
           <Form.Label className="todosFormEdit__label">Description:</Form.Label>
-          <Form.Control className="todosFormEdit__control" type="text" name="todo_description" onChange={this.handleChange} value={this.state.todo_description} required/>
+          <Form.Control className="todosFormEdit__control" as="textarea" name="todo_description" maxLength="200" onChange={this.handleChange} value={this.state.todo_description} required/>
           <Form.Control.Feedback type="invalid">Description is required</Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="todosFormEdit__group" controlId="formBasicStatus">
