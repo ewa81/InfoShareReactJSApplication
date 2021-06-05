@@ -39,6 +39,7 @@ class TodoForm extends Component {
     if (this.state.todo_title) {
       try {
         await axios.post('http://localhost:8080/api/todos', postTodosForm);
+        this.props.history.goBack();
       } catch(error) {
         console.log(error);
       }
@@ -51,14 +52,15 @@ class TodoForm extends Component {
     return (<Form noValidate validated={validated} className="todosForm" onSubmit={this.handleSubmit}>
       <Form.Group className="todosFrom__group" controlId="formBasicTittle">
         <Form.Label className="todosFrom__label">Title</Form.Label>
-        <Form.Control className="todosForm__control" type="text" name="todo_title" onChange={this.handleChange} required/>
+        <Form.Control className="todosForm__control" type="text" name="todo_title" maxLength="40" onChange={this.handleChange} required/>
         <Form.Control.Feedback type="invalid">Please provide title</Form.Control.Feedback>
       </Form.Group>
       <Form.Group className="todosForm__group" controlId="formBasicDescription">
         <Form.Label className="todosForm__label">Description</Form.Label>
-        <Form.Control className="todosForm__control" type="text" name="todo_description" onChange={this.handleChange}/>
+        <Form.Control className="todosForm__control" as="textarea" name="todo_description" maxLength="200" onChange={this.handleChange} required/>
+        <Form.Control.Feedback type="invalid">Description is required</Form.Control.Feedback>
       </Form.Group>
-      <Button className="todosFrom__button" variant="primary" type="submit" disabled={this.state.isValid}>Submit</Button>
+      <Button className="todosFrom__button" variant="primary" type="submit">Submit</Button>
     </Form>);
   }
 }
