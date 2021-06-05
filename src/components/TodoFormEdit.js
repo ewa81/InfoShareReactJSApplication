@@ -9,7 +9,7 @@ class TodoFormEdit extends Component {
     todo_description: "",
     todo_status: "",
     updatedAt: new Date().toISOString(),
-    validated: false
+    validated: false,
   }
 
   handleChange = event => {

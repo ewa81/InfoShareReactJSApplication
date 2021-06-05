@@ -39,6 +39,7 @@ class TodoForm extends Component {
     if (this.state.todo_title) {
       try {
         await axios.post('http://localhost:8080/api/todos', postTodosForm);
+        this.props.history.goBack();
       } catch(error) {
         console.log(error);
       }
