@@ -4,6 +4,7 @@ import TodosStatistics from "./TodosStatistics";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
 import {Row, Col} from "react-bootstrap";
+import TodosPagination from "./TodosPagination";
 
 class Todos extends Component {
   state = {
@@ -99,11 +100,14 @@ removeTodo = async (id) => {
           <TodosStatistics todos={this.state.todos}/>
         </Col>
         <Col className="todos" sm={10}>
-          <div className="todos__removeButtons mb-2">
+          <div className="todos__removeButtons mb-2 d-flex justify-content-between">
             <Button variant="info" className="mr-2" onClick={this.toggleButton}>
               {this.state.deleteMode ? "Stop Chosing" : "Choose todos to remove"}
             </Button>
             {this.state.deleteMode ? <Button variant="primary" onClick={this.removeSelectedTodos}>Remove chosen todos</Button> : null}
+        <Col className="todosPagination d-flex justify-content-end p-0">
+          <TodosPagination />
+        </Col>
           </div>
           <Row className="todos__list p-0" as="ul">
             {this.state.todos.map((todo, index) => (
