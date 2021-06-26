@@ -1,9 +1,9 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Todo from "./Todo";
 import TodosStatistics from "./TodosStatistics";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
-import {Row, Col} from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import TodosPagination from "./TodosPagination";
 
 class Todos extends Component {
@@ -13,30 +13,30 @@ class Todos extends Component {
     selectedTodos: []
   };
 
-async componentDidMount() {
-  try {
-    const todoResp = await axios.get('http://localhost:8080/api/todos');
-    this.setState({todos: todoResp.data});
-  } catch(error) {
-    console.log(error);
-  }
-};
-
-removeTodo = async (id) => {
-  const conf = window.confirm('Are you sure you want to delete this todo?');
-
-  if (conf) {
-    const todos = this.state.todos;
-    const index = todos.findIndex(todo => todo._id === id);
-    todos.splice(index, 1);
-    this.setState({todos});
+  async componentDidMount() {
     try {
-      await axios.delete(`http://localhost:8080/api/todos/${id}`);
-    } catch(error) {
+      const todoResp = await axios.get("http://localhost:8080/api/todos");
+      this.setState({ todos: todoResp.data });
+    } catch (error) {
       console.log(error);
     }
+  }
+
+  removeTodo = async id => {
+    const conf = window.confirm("Are you sure you want to delete this todo?");
+
+    if (conf) {
+      const todos = this.state.todos;
+      const index = todos.findIndex(todo => todo._id === id);
+      todos.splice(index, 1);
+      this.setState({ todos });
+      try {
+        await axios.delete(`http://localhost:8080/api/todos/${id}`);
+      } catch (error) {
+        console.log(error);
+      }
+    }
   };
-};
 
   toggleButton = () => {
     this.setState({
@@ -44,7 +44,7 @@ removeTodo = async (id) => {
     });
   };
 
-  selectTodoToRemove = (id) => {
+  selectTodoToRemove = id => {
     const selectedTodos = this.state.selectedTodos;
 
     if (selectedTodos.indexOf(id) === -1) {
@@ -59,13 +59,15 @@ removeTodo = async (id) => {
   };
 
   removeSelectedTodos = async () => {
-    const isRemovalConfirmed = window.confirm('Do you really want to remove these todo');
+    const isRemovalConfirmed = window.confirm(
+      "Do you really want to remove these todo"
+    );
 
     if (!isRemovalConfirmed) {
       return;
     }
 
-    const {todos, selectedTodos} = this.state;
+    const { todos, selectedTodos } = this.state;
     const selectedIds = [];
 
     for (let i = 0; i < selectedTodos.length; i++) {
@@ -78,9 +80,9 @@ removeTodo = async (id) => {
 
     try {
       await axios.delete(`http://localhost:8080/api/todos/many/${todoList}`);
-    } catch(error) {
+    } catch (error) {
       console.lob(error);
-    };
+    }
 
     const todosAfterRemoval = todos.filter((item, index) => {
       return selectedTodos.indexOf(index) === -1;
@@ -93,21 +95,34 @@ removeTodo = async (id) => {
   };
 
   render() {
-
     return (
       <Row>
         <Col sm={2}>
-          <TodosStatistics todos={this.state.todos}/>
+          <TodosStatistics todos={this.state.todos} />
         </Col>
         <Col className="todos" sm={10}>
-          <div className="todos__removeButtons mb-2 d-flex justify-content-between">
-            <Button variant="info" className="mr-2" onClick={this.toggleButton}>
-              {this.state.deleteMode ? "Stop Chosing" : "Choose todos to remove"}
-            </Button>
-            {this.state.deleteMode ? <Button variant="primary" onClick={this.removeSelectedTodos}>Remove chosen todos</Button> : null}
-        <Col className="todosPagination d-flex justify-content-end p-0">
-          <TodosPagination />
-        </Col>
+          <div className="todos__removeButtons mb-2">
+            <Row className="mb-3">
+              <Col>
+                <Button
+                  variant="info"
+                  className="mr-2"
+                  onClick={this.toggleButton}
+                >
+                  {this.state.deleteMode
+                    ? "Stop Chosing"
+                    : "Choose todos to remove"}
+                </Button>
+                {this.state.deleteMode ? (
+                  <Button variant="primary" onClick={this.removeSelectedTodos}>
+                    Remove chosen todos
+                  </Button>
+                ) : null}
+              </Col>
+              <Col className="todos__pagination">
+                <TodosPagination />
+              </Col>
+            </Row>
           </div>
           <Row className="todos__list p-0" as="ul">
             {this.state.todos.map((todo, index) => (
@@ -118,10 +133,12 @@ removeTodo = async (id) => {
                 removeTodo={this.removeTodo}
                 deleteMode={this.state.deleteMode}
                 selectTodoToRemove={this.selectTodoToRemove}
-              />))}
+              />
+            ))}
           </Row>
         </Col>
-      </Row>);
+      </Row>
+    );
   }
 }
 

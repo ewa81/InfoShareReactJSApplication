@@ -1,14 +1,15 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Pagination from "react-bootstrap/Pagination";
+import { Col } from "react-bootstrap";
 
 class TodosPagination extends Component {
   state = {
-    currentPage: 1,
+    currentPage: 1
   };
 
-  selectAPageForPaginantion = (number) => {
+  selectAPageForPaginantion = number => {
     this.setState({
-      currentPage: number,
+      currentPage: number
     });
   };
 
@@ -22,18 +23,18 @@ class TodosPagination extends Component {
           key={number}
           active={number === currentPage}
           onClick={() => this.selectAPageForPaginantion(number)}
-          >
+        >
           {number}
         </Pagination.Item>
       );
-    };
+    }
 
     return (
-      <div>
-        <Pagination>
+      <Col>
+        <Pagination className="todosPagination d-flex justify-content-end">
           {pageNumbers}
         </Pagination>
-      </div>
+      </Col>
     );
   }
 }
