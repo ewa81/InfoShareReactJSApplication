@@ -101,29 +101,27 @@ class Todos extends Component {
           <TodosStatistics todos={this.state.todos} />
         </Col>
         <Col className="todos" sm={10}>
-          <div className="todos__removeButtons mb-2">
-            <Row className="mb-3">
-              <Col>
-                <Button
-                  variant="info"
-                  className="mr-2"
-                  onClick={this.toggleButton}
-                >
-                  {this.state.deleteMode
-                    ? "Stop Chosing"
-                    : "Choose todos to remove"}
+          <Row className="mb-3">
+            <Col className="todos__removeButtons">
+              <Button
+                variant="info"
+                className="mr-2"
+                onClick={this.toggleButton}
+              >
+                {this.state.deleteMode
+                  ? "Stop Chosing"
+                  : "Choose todos to remove"}
+              </Button>
+              {this.state.deleteMode ? (
+                <Button variant="primary" onClick={this.removeSelectedTodos}>
+                  Remove chosen todos
                 </Button>
-                {this.state.deleteMode ? (
-                  <Button variant="primary" onClick={this.removeSelectedTodos}>
-                    Remove chosen todos
-                  </Button>
-                ) : null}
-              </Col>
-              <Col className="todos__pagination">
-                <TodosPagination />
-              </Col>
-            </Row>
-          </div>
+              ) : null}
+            </Col>
+            <Col className="todos__pagination">
+              <TodosPagination />
+            </Col>
+          </Row>
           <Row className="todos__list p-0" as="ul">
             {this.state.todos.map((todo, index) => (
               <Todo
