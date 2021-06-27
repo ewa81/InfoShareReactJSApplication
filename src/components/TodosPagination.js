@@ -31,7 +31,7 @@ class TodosPagination extends Component {
 
     return (
       <Col>
-        <Pagination className="todosPagination d-flex justify-content-end">
+        <Pagination className="todosPagination d-flex justify-content-end m-0">
           {pageNumbers}
         </Pagination>
       </Col>
