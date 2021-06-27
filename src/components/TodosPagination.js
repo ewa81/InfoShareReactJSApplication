@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Pagination from "react-bootstrap/Pagination";
-import { Col } from "react-bootstrap";
 
 class TodosPagination extends Component {
   state = {
@@ -30,11 +29,9 @@ class TodosPagination extends Component {
     }
 
     return (
-      <Col>
-        <Pagination className="todosPagination d-flex justify-content-end m-0">
-          {pageNumbers}
-        </Pagination>
-      </Col>
+      <Pagination className="todosPagination d-flex justify-content-end m-0">
+        {pageNumbers}
+      </Pagination>
     );
   }
 }
