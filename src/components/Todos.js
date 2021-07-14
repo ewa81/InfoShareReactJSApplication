@@ -95,6 +95,8 @@ class Todos extends Component {
   };
 
   render() {
+    const { todos } = this.state;
+
     return (
       <Row>
         <Col sm={2}>
@@ -119,7 +121,7 @@ class Todos extends Component {
               ) : null}
             </Col>
             <Col className="todos__pagination">
-              <TodosPagination />
+              <TodosPagination todos={todos.length} />
             </Col>
           </Row>
           <Row className="todos__list p-0" as="ul">
