@@ -119,7 +119,7 @@ class Todos extends Component {
               ) : null}
             </Col>
             <Col className="todos__pagination">
-              <TodosPagination todos={this.state.todos} />
+              <TodosPagination todos={this.state.todos.length} />
             </Col>
           </Row>
           <Row className="todos__list p-0" as="ul">
