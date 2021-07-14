@@ -15,8 +15,13 @@ class TodosPagination extends Component {
   render() {
     const { currentPage } = this.state;
     const pageNumbers = [];
+    const perPage = 5;
 
-    for (let number = 1; number <= 3; number++) {
+    for (
+      let number = 1;
+      number <= Math.ceil(this.props.todos.length / perPage);
+      number++
+    ) {
       pageNumbers.push(
         <Pagination.Item
           key={number}
