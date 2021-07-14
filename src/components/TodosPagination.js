@@ -13,12 +13,13 @@ class TodosPagination extends Component {
   };
 
   render() {
-    const pagesCount = this.props.todos;
     const { currentPage } = this.state;
     const pageNumbers = [];
     const perPage = 5;
 
-    for (let number = 1; number <= Math.ceil(pagesCount / perPage); number++) {
+    const pagesCount = Math.ceil(this.props.todos / perPage);
+
+    for (let number = 1; number <= pagesCount; number++) {
       pageNumbers.push(
         <Pagination.Item
           key={number}
