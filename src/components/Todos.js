@@ -11,7 +11,7 @@ class Todos extends Component {
     todos: [],
     deleteMode: false,
     selectedTodos: [],
-    visiblideTodos: []
+    visibleTodos: []
   };
 
   async componentDidMount() {
@@ -19,7 +19,7 @@ class Todos extends Component {
       const todoResp = await axios.get("http://localhost:8080/api/todos");
       this.setState({
         todos: todoResp.data,
-        visiblideTodos: todoResp.data.slice(0, 5)
+        visibleTodos: todoResp.data.slice(0, 5)
       });
     } catch (error) {
       console.log(error);
@@ -129,7 +129,7 @@ class Todos extends Component {
             </Col>
           </Row>
           <Row className="todos__list p-0" as="ul">
-            {this.state.visiblideTodos.map((todo, index) => (
+            {this.state.visibleTodos.map((todo, index) => (
               <Todo
                 key={todo._id}
                 index={index}
