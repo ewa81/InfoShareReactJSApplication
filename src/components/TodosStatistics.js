@@ -10,7 +10,7 @@ class TodosStatistics extends Component {
           <p
             className="todosStatistics__statusCount todosStatistics__statusCount--done mb-2 p-3 rounded d-flex justify-content-between align-items-center"
             onClick={() =>
-              this.props.onClickSelectedStatus(this.props.selectedStatus)
+              this.props.setSelectedStatus(console.log("Siema tu status DONE"))
             }
           >
             <span className="todosStatistics__statusLabel">DONE</span>
@@ -23,7 +23,9 @@ class TodosStatistics extends Component {
           <p
             className="todosStatistics__statusCount todosStatistics__statusCount--inprogress mb-2 p-3 rounded d-flex justify-content-between align-items-center"
             onClick={() =>
-              this.props.onClickSelectedStatus(this.props.selectedStatus)
+              this.props.setSelectedStatus(
+                console.log("Siema tu status IN_PROGRESS")
+              )
             }
           >
             <span className="todosStatistics__statusLabel">IN_PROGRESS</span>
@@ -36,7 +38,7 @@ class TodosStatistics extends Component {
           <p
             className="todosStatistics__statusCount todosStatistics__statusCount--todo mb-2 p-3 rounded d-flex justify-content-between align-items-center"
             onClick={() =>
-              this.props.onClickSelectedStatus(this.props.selectedStatus)
+              this.props.setSelectedStatus(console.log("Siema tu status TODO"))
             }
           >
             <span className="todosStatistics__statusLabel">TODO</span>
