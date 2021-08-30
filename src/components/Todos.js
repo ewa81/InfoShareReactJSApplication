@@ -11,7 +11,8 @@ class Todos extends Component {
     todos: [],
     deleteMode: false,
     selectedTodos: [],
-    visibleTodos: []
+    visibleTodos: [],
+    selectedStatus: ""
   };
 
   async componentDidMount() {
@@ -98,13 +99,23 @@ class Todos extends Component {
     });
   };
 
+  onClickSelectedStatus = () => {
+    this.setState({
+      selectedStatus: "siema"
+    });
+    console.log(this.state.selectedStatus);
+  };
+
   render() {
     const { todos } = this.state;
 
     return (
       <Row>
         <Col sm={2}>
-          <TodosStatistics todos={this.state.todos} />
+          <TodosStatistics
+            todos={this.state.todos}
+            onClickSelectedStatus={this.onClickSelectedStatus}
+          />
         </Col>
         <Col className="todos" sm={10}>
           <Row className="mb-3">
