@@ -99,8 +99,8 @@ class Todos extends Component {
     });
   };
 
-  setSelectedStatus = () => {
-    console.log();
+  setSelectedStatus = value => {
+    console.log("Siema tu status:", value);
   };
 
   render() {
@@ -111,7 +111,7 @@ class Todos extends Component {
         <Col sm={2}>
           <TodosStatistics
             todos={this.state.todos}
-            setSelectedStatus={this.setSelectedStatus}
+            value={this.setSelectedStatus}
           />
         </Col>
         <Col className="todos" sm={10}>
