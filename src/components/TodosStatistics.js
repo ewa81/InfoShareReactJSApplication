@@ -8,7 +8,9 @@ class TodosStatistics extends Component {
       <Row className="todosStatistics">
         <Col sm={12}>
           <p
-            className={`todosStatistics__statusCount todosStatistics__statusCount--done mb-2 p-3 rounded d-flex justify-content-between align-items-center ${this.setSelectedClass()}`}
+            className={`todosStatistics__statusCount todosStatistics__statusCount--done mb-2 p-3 rounded d-flex justify-content-between align-items-center ${this.setSelectedClass(
+              "DONE"
+            )}`}
             onClick={() => this.props.setSelectedStatus("DONE")}
           >
             <span className="todosStatistics__statusLabel">DONE</span>
@@ -19,7 +21,9 @@ class TodosStatistics extends Component {
         </Col>
         <Col sm={12}>
           <p
-            className={`todosStatistics__statusCount todosStatistics__statusCount--inprogress mb-2 p-3 rounded d-flex justify-content-between align-items-center ${this.setSelectedClass()}`}
+            className={`todosStatistics__statusCount todosStatistics__statusCount--inprogress mb-2 p-3 rounded d-flex justify-content-between align-items-center ${this.setSelectedClass(
+              "IN_PROGRESS"
+            )}`}
             onClick={() => this.props.setSelectedStatus("IN_PROGRESS")}
           >
             <span className="todosStatistics__statusLabel">IN_PROGRESS</span>
@@ -30,7 +34,9 @@ class TodosStatistics extends Component {
         </Col>
         <Col sm={12}>
           <p
-            className={`todosStatistics__statusCount todosStatistics__statusCount--todo mb-2 p-3 rounded d-flex justify-content-between align-items-center ${this.setSelectedClass()}`}
+            className={`todosStatistics__statusCount todosStatistics__statusCount--todo mb-2 p-3 rounded d-flex justify-content-between align-items-center ${this.setSelectedClass(
+              "TODO"
+            )}`}
             onClick={() => this.props.setSelectedStatus("TODO")}
           >
             <span className="todosStatistics__statusLabel">TODO</span>
@@ -50,8 +56,8 @@ class TodosStatistics extends Component {
     return result.length;
   }
 
-  setSelectedClass = () => {
-    return "siema";
+  setSelectedClass = status => {
+    return status;
   };
 }
 
