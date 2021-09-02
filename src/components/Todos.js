@@ -113,6 +113,7 @@ class Todos extends Component {
         <Col sm={2}>
           <TodosStatistics
             todos={this.state.todos}
+            selectedStatus={this.state.selectedStatus}
             setSelectedStatus={this.setSelectedStatus}
           />
         </Col>
