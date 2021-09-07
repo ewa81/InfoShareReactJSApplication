@@ -102,11 +102,10 @@ class Todos extends Component {
   setSelectedStatus = status => {
     const { selectedStatus } = this.state;
 
-    {
-      selectedStatus === status
-        ? this.setState({ selectedStatus: "" })
-        : this.setState({ selectedStatus: status });
-    }
+    const deselectStatus = selectedStatus === status ? "" : status;
+    this.setState({
+      selectedStatus: deselectStatus
+    });
   };
 
   render() {
