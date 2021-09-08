@@ -59,10 +59,7 @@ class TodosStatistics extends Component {
   setSelectedClass = status => {
     const { selectedStatus } = this.props;
 
-    if (selectedStatus === status) {
-      return "selected";
-    }
-    return "";
+    return selectedStatus === status ? "selected" : "";
   };
 }
 
