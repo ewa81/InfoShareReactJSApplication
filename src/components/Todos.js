@@ -11,7 +11,8 @@ class Todos extends Component {
     todos: [],
     deleteMode: false,
     selectedTodos: [],
-    visibleTodos: []
+    visibleTodos: [],
+    selectedStatus: ""
   };
 
   async componentDidMount() {
@@ -98,13 +99,26 @@ class Todos extends Component {
     });
   };
 
+  setSelectedStatus = status => {
+    const { selectedStatus } = this.state;
+
+    const statusToSet = selectedStatus === status ? "" : status;
+    this.setState({
+      selectedStatus: statusToSet
+    });
+  };
+
   render() {
     const { todos } = this.state;
 
     return (
       <Row>
         <Col sm={2}>
-          <TodosStatistics todos={this.state.todos} />
+          <TodosStatistics
+            todos={this.state.todos}
+            selectedStatus={this.state.selectedStatus}
+            setSelectedStatus={this.setSelectedStatus}
+          />
         </Col>
         <Col className="todos" sm={10}>
           <Row className="mb-3">

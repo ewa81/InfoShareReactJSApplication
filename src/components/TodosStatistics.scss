@@ -2,6 +2,7 @@ $white_color: white;
 $green_color: #28a745;
 $orange_color: #ffc107;
 $red_color: #dc3545;
+$grey_color: #999999;
 
 .todosStatistics__statusCount--done {
   background-color: $green_color;
@@ -31,4 +32,8 @@ $red_color: #dc3545;
 .todosStatistics__statusTodo {
   background-color: $white_color;
   color: $red_color;
+}
+
+.selected {
+  background-color: $grey_color;
 }
