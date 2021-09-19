@@ -101,10 +101,17 @@ class Todos extends Component {
 
   setSelectedStatus = status => {
     const { selectedStatus } = this.state;
+    const { todos } = this.state;
 
     const statusToSet = selectedStatus === status ? "" : status;
+
+    const visibleStatus = todos.filter(
+      todo => todo.todo_status === statusToSet
+    );
+
     this.setState({
-      selectedStatus: statusToSet
+      selectedStatus: statusToSet,
+      visibleTodos: visibleStatus
     });
   };
 
