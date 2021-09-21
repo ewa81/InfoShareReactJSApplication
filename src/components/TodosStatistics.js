@@ -14,7 +14,7 @@ class TodosStatistics extends Component {
             onClick={() => this.props.setSelectedStatus("DONE")}
           >
             <span className="todosStatistics__statusLabel">DONE</span>
-            <span className="todosStatistics__statusDone p-2 rounded">
+            <span className="todosStatistics__statusDone quantity p-2 rounded">
               {this.getTodosCountByStatus("DONE")}
             </span>
           </p>
@@ -27,7 +27,7 @@ class TodosStatistics extends Component {
             onClick={() => this.props.setSelectedStatus("IN_PROGRESS")}
           >
             <span className="todosStatistics__statusLabel">IN_PROGRESS</span>
-            <span className="todosStatistics__statusInprogress p-2 rounded">
+            <span className="todosStatistics__statusInprogress quantity p-2 rounded">
               {this.getTodosCountByStatus("IN_PROGRESS")}
             </span>
           </p>
@@ -40,7 +40,7 @@ class TodosStatistics extends Component {
             onClick={() => this.props.setSelectedStatus("TODO")}
           >
             <span className="todosStatistics__statusLabel">TODO</span>
-            <span className="todosStatistics__statusTodo p-2 rounded">
+            <span className="todosStatistics__statusTodo quantity p-2 rounded">
               {this.getTodosCountByStatus("TODO")}
             </span>
           </p>

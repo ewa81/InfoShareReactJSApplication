@@ -7,16 +7,19 @@ $grey_color: #999999;
 .todosStatistics__statusCount--done {
   background-color: $green_color;
   color: $white_color;
+  cursor: pointer;
 }
 
 .todosStatistics__statusCount--inprogress {
   background-color: $orange_color;
   color: $white_color;
+  cursor: pointer;
 }
 
 .todosStatistics__statusCount--todo {
   background-color: $red_color;
   color: $white_color;
+  cursor: pointer;
 }
 
 .todosStatistics__statusDone {
@@ -36,4 +39,8 @@ $grey_color: #999999;
 
 .selected {
   background-color: $grey_color;
+
+  .quantity {
+    color: $grey_color;
+  }
 }
