@@ -40,7 +40,9 @@ $grey_color: #999999;
 .selected {
   background-color: $grey_color;
 
-  .quantity {
+  .todosStatistics__statusDone--quantity,
+  .todosStatistics__statusInprogress--quantity,
+  .todosStatistics__statusTodo--quantity {
     color: $grey_color;
   }
 }
