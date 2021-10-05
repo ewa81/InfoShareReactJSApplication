@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Pagination from "react-bootstrap/Pagination";
+import "./TodosPagination.scss";
 
 class TodosPagination extends Component {
   state = {
@@ -22,6 +23,7 @@ class TodosPagination extends Component {
     for (let number = 1; number <= pagesCount; number++) {
       pageNumbers.push(
         <Pagination.Item
+          className="todosPaginationLinkStyle"
           key={number}
           active={number === currentPage}
           onClick={() => this.selectAPageForPaginantion(number)}
