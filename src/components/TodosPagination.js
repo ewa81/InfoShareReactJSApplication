@@ -23,7 +23,6 @@ class TodosPagination extends Component {
     for (let number = 1; number <= pagesCount; number++) {
       pageNumbers.push(
         <Pagination.Item
-          className="todosPaginationLinkStyle"
           key={number}
           active={number === currentPage}
           onClick={() => this.selectAPageForPaginantion(number)}
