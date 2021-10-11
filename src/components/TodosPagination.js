@@ -8,9 +8,14 @@ class TodosPagination extends Component {
   };
 
   selectAPageForPaginantion = number => {
-    this.setState({
-      currentPage: number
-    });
+    if ("page-item.active page-link") {
+      console.log("hello");
+      this.setState({
+        currentPage: number
+      });
+    } else {
+      return;
+    }
   };
 
   render() {
