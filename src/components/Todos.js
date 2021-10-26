@@ -115,6 +115,10 @@ class Todos extends Component {
     });
   };
 
+  setPaginationRange = () => {
+    console.log("siema");
+  };
+
   render() {
     const { todos } = this.state;
 
@@ -146,7 +150,10 @@ class Todos extends Component {
               ) : null}
             </Col>
             <Col className="todos__pagination">
-              <TodosPagination todos={todos.length} />
+              <TodosPagination
+                todos={todos.length}
+                setPaginationRange={this.setPaginationRange}
+              />
             </Col>
           </Row>
           <Row className="todos__list p-0" as="ul">

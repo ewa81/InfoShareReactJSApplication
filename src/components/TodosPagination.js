@@ -17,6 +17,8 @@ class TodosPagination extends Component {
     if (number === currentPage) {
       return;
     }
+
+    this.props.setPaginationRange(number);
   };
 
   render() {
