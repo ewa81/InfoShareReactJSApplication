@@ -18,8 +18,6 @@ class TodosPagination extends Component {
       return;
     }
 
-    this.props.setPaginationRange(number);
-
     const todosCount = this.props.todos;
 
     const pageNumber = number;
@@ -33,7 +31,7 @@ class TodosPagination extends Component {
         ? 5 * Math.floor(todosCount / 5) + (todosCount % 5)
         : 5 * (pageNumber - 1) + 5;
 
-    console.log(`{range: start: ${start}, end: ${end}}`);
+    this.props.setPaginationRange({ start, end });
   };
 
   render() {

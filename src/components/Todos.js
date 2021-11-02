@@ -115,8 +115,8 @@ class Todos extends Component {
     });
   };
 
-  setPaginationRange = () => {
-    console.log("siema");
+  setPaginationRange = range => {
+    console.log(range);
   };
 
   render() {
