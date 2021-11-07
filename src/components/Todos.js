@@ -116,7 +116,6 @@ class Todos extends Component {
   };
 
   setPaginationRange = (start, end) => {
-    const { visibleTodos } = this.state;
     const { todos } = this.state;
 
     this.setState({
