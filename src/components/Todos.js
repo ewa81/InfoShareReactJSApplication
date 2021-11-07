@@ -115,8 +115,12 @@ class Todos extends Component {
     });
   };
 
-  setPaginationRange = range => {
-    console.log(range);
+  setPaginationRange = (start, end) => {
+    const { todos } = this.state;
+
+    this.setState({
+      visibleTodos: todos.slice(start, end)
+    });
   };
 
   render() {
