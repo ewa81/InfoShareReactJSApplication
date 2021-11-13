@@ -34,7 +34,7 @@ class Todos extends Component {
       const todos = this.state.todos;
       const index = todos.findIndex(todo => todo._id === id);
       todos.splice(index, 1);
-      this.setState({ todos });
+      this.setState({ visibleTodos: todos });
       try {
         await axios.delete(`http://localhost:8080/api/todos/${id}`);
       } catch (error) {
