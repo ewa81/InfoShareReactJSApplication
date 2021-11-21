@@ -39,11 +39,11 @@ class Todos extends Component {
       const indexTodos = todos.find(todo => todo._id === id);
       todos.splice(index, 1);
       this.setState({ visibleTodos, todos });
-      // try {
-      //   await axios.delete(`http://localhost:8080/api/todos/${id}`);
-      // } catch (error) {
-      //   console.log(error);
-      // }
+      try {
+        await axios.delete(`http://localhost:8080/api/todos/${id}`);
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
