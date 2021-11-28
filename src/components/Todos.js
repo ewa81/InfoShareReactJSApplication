@@ -10,7 +10,7 @@ class Todos extends Component {
   state = {
     todos: [],
     deleteMode: false,
-    selectedTodos: [],
+    selectedTodosIds: [],
     visibleTodos: [],
     selectedStatus: ""
   };
@@ -28,23 +28,24 @@ class Todos extends Component {
   }
 
   removeTodo = async id => {
-    const conf = window.confirm("Are you sure you want to delete this todo?");
-
-    if (conf) {
-      const todos = this.state.todos;
-      const visibleTodos = this.state.visibleTodos;
-      const index = visibleTodos.findIndex(todo => todo._id === id);
-      visibleTodos.splice(index, 1);
-
-      const indexTodos = todos.find(todo => todo._id === id);
-      todos.splice(indexTodos, 1);
-      this.setState({ visibleTodos, todos });
-      try {
-        await axios.delete(`http://localhost:8080/api/todos/${id}`);
-      } catch (error) {
-        console.log(error);
-      }
-    }
+    console.log("id: ", id);
+    // const conf = window.confirm("Are you sure you want to delete this todo?");
+    //
+    // if (conf) {
+    //   const todos = this.state.todos;
+    //   const visibleTodos = this.state.visibleTodos;
+    //   const index = visibleTodos.findIndex(todo => todo._id === id);
+    //   visibleTodos.splice(index, 1);
+    //
+    //   const indexTodos = todos.find(todo => todo._id === id);
+    //   todos.splice(indexTodos, 1);
+    //   this.setState({ visibleTodos, todos });
+    //   try {
+    //     await axios.delete(`http://localhost:8080/api/todos/${id}`);
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // }
   };
 
   toggleButton = () => {
@@ -54,53 +55,54 @@ class Todos extends Component {
   };
 
   selectTodoToRemove = id => {
-    const selectedTodos = this.state.selectedTodos;
-
-    if (selectedTodos.indexOf(id) === -1) {
-      selectedTodos.push(id);
-    } else {
-      selectedTodos.splice(selectedTodos.indexOf(id), 1);
-    }
-
-    this.setState({
-      selectedTodos
-    });
+    console.log("id: ", id);
+    // const selectedTodosIds = this.state.selectedTodosIds;
+    //
+    // if (selectedTodosIds.indexOf(id) === -1) {
+    //   selectedTodosIds.push(id);
+    // } else {
+    //   selectedTodosIds.splice(selectedTodosIds.indexOf(id), 1);
+    // }
+    //
+    // this.setState({
+    //   selectedTodosIds
+    // });
   };
 
   removeSelectedTodos = async () => {
-    const isRemovalConfirmed = window.confirm(
-      "Do you really want to remove these todo"
-    );
-
-    if (!isRemovalConfirmed) {
-      return;
-    }
-
-    const { todos, selectedTodos } = this.state;
-    const selectedIds = [];
-
-    for (let i = 0; i < selectedTodos.length; i++) {
-      const todoIndex = selectedTodos[i];
-      const todoId = todos[todoIndex]._id;
-      selectedIds.push(todoId);
-    }
-
-    const todoList = selectedIds.join();
-
-    try {
-      await axios.delete(`http://localhost:8080/api/todos/many/${todoList}`);
-    } catch (error) {
-      console.lob(error);
-    }
-
-    const todosAfterRemoval = todos.filter((item, index) => {
-      return selectedTodos.indexOf(index) === -1;
-    });
-
-    this.setState({
-      todos: todosAfterRemoval,
-      selectedTodos: []
-    });
+    // const isRemovalConfirmed = window.confirm(
+    //   "Do you really want to remove these todo"
+    // );
+    //
+    // if (!isRemovalConfirmed) {
+    //   return;
+    // }
+    //
+    // const { todos, selectedTodosIds } = this.state;
+    // const selectedIds = [];
+    //
+    // for (let i = 0; i < selectedTodosIds.length; i++) {
+    //   const todoIndex = selectedTodosIds[i];
+    //   const todoId = todos[todoIndex]._id;
+    //   selectedIds.push(todoId);
+    // }
+    //
+    // const todoList = selectedIds.join();
+    //
+    // try {
+    //   await axios.delete(`http://localhost:8080/api/todos/many/${todoList}`);
+    // } catch (error) {
+    //   console.lob(error);
+    // }
+    //
+    // const todosAfterRemoval = todos.filter((item, index) => {
+    //   return selectedTodosIds.indexOf(index) === -1;
+    // });
+    //
+    // this.setState({
+    //   todos: todosAfterRemoval,
+    //   selectedTodosIds: []
+    // });
   };
 
   setSelectedStatus = status => {
@@ -165,10 +167,9 @@ class Todos extends Component {
             </Col>
           </Row>
           <Row className="todos__list p-0" as="ul">
-            {this.state.visibleTodos.map((todo, index) => (
+            {this.state.visibleTodos.map(todo => (
               <Todo
                 key={todo._id}
-                index={index}
                 todo={todo}
                 removeTodo={this.removeTodo}
                 deleteMode={this.state.deleteMode}
