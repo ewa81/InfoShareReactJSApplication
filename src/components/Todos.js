@@ -29,23 +29,25 @@ class Todos extends Component {
 
   removeTodo = async id => {
     console.log("id: ", id);
-    // const conf = window.confirm("Are you sure you want to delete this todo?");
-    //
-    // if (conf) {
-    //   const todos = this.state.todos;
-    //   const visibleTodos = this.state.visibleTodos;
-    //   const index = visibleTodos.findIndex(todo => todo._id === id);
-    //   visibleTodos.splice(index, 1);
-    //
-    //   const indexTodos = todos.find(todo => todo._id === id);
-    //   todos.splice(indexTodos, 1);
-    //   this.setState({ visibleTodos, todos });
-    //   try {
-    //     await axios.delete(`http://localhost:8080/api/todos/${id}`);
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // }
+    const conf = window.confirm("Are you sure you want to delete this todo?");
+
+    if (conf) {
+      const todos = this.state.todos;
+      const visibleTodos = this.state.visibleTodos;
+      const index = visibleTodos.findIndex(todo => todo._id === id);
+      visibleTodos.splice(index, 1);
+      console.log(this.state.visibleTodos);
+
+      const indexTodos = todos.find(todo => todo._id === id);
+      todos.splice(indexTodos, 1);
+      this.setState({ visibleTodos, todos });
+        try {
+          await axios.delete(`http://localhost:8080/api/todos/${id}`);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    }
   };
 
   toggleButton = () => {
