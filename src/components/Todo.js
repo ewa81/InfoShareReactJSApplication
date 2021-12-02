@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
-import "./Todo.scss"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import "./Todo.scss";
 import { Link } from "react-router-dom";
-import Form from 'react-bootstrap/Form';
-import {Row, Col} from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+import { Row, Col } from "react-bootstrap";
 
 class Todo extends Component {
   render() {
@@ -18,17 +18,32 @@ class Todo extends Component {
     } = this.props.todo;
 
     return (
-      <Col className="todos__item" sm={3} as="li">
+      <Col className="todos__item mt-2" sm={3} as="li">
         <Row>
           <Col sm={6}>
-            <p className={this.setTheTaskStatusClass(todo_status)}>{todo_status}</p>
+            <p className={this.setTheTaskStatusClass(todo_status)}>
+              {todo_status}
+            </p>
           </Col>
           <Col sm={6}>
-            <FontAwesomeIcon icon={faTrash} className="todos__icon todos__icon--delete" onClick={() => this.props.removeTodo(this.props.todo._id)}/>
-            {this.props.deleteMode ? <Form.Check type="checkbox" className="todos__checkbox mt-2 mb-2" label="Check todo to delete" onClick={() => this.props.selectTodoToRemove(this.props.index)}/> : null}
+            <FontAwesomeIcon
+              icon={faTrash}
+              className="todos__icon todos__icon--delete float-right"
+              onClick={() => this.props.removeTodo(this.props.todo._id)}
+            />
+            {this.props.deleteMode ? (
+              <Form.Check
+                type="checkbox"
+                className="todos__checkbox mt-2 mb-2"
+                label="Check todo to delete"
+                onClick={() => this.props.selectTodoToRemove(this.props.index)}
+              />
+            ) : null}
           </Col>
           <Col sm={12}>
-            <Link to={`form-edit/${id}`}><p className="todos__title">{todo_title}</p></Link>
+            <Link to={`form-edit/${id}`}>
+              <p className="todos__title">{todo_title}</p>
+            </Link>
           </Col>
           <Col sm={12}>
             <p className="todos__description">{todo_description}</p>
@@ -41,7 +56,9 @@ class Todo extends Component {
           </Col>
           <Col sm={6}>
             <p>Updated At:</p>
-            <p className="todos__updatedAt">{this.formatDate(new Date(updatedAt))}</p>
+            <p className="todos__updatedAt">
+              {this.formatDate(new Date(updatedAt))}
+            </p>
           </Col>
         </Row>
       </Col>
